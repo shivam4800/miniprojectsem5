@@ -1,0 +1,5 @@
+.border {
+    position: fixed;
+    height: 100vh;
+    border-right: 2px solid #ece4e4;
+}
