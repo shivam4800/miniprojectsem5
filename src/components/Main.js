@@ -9,7 +9,7 @@ const Main = () => {
     const imgarr = imgsrc.map((img) => {
         return (
 
-            <div class="ui card " style={{ display: 'inline-block', marginLeft: '60px', marginRight: '30px', maxWidth: '20%' }}>
+            <div class="ui card " style={{ display: 'inline-block', marginLeft: '60px',  maxWidth: '20%' }}>
                 <div class="image">
                     <img src={img.src} />
                 </div>
@@ -20,11 +20,11 @@ const Main = () => {
 
                     <div class="description">
                         {img.description}
-            </div>
+                    </div>
                 </div>
                 <div class="extra content">
                     fun games
-            </div>
+                </div>
 
             </div>
 
@@ -35,7 +35,10 @@ const Main = () => {
 
     return (
         <div className="size">
+
+            
             <div>
+                <img src="https://cdn.pixabay.com/photo/2018/06/07/16/49/vr-3460451_960_720.jpg" width="120%"/>
                 <h1>Back To The Classics! </h1>
             </div>
             <div style={{ marginTop: '20px' }}>
@@ -59,9 +62,7 @@ const Main = () => {
             </div>
             <div style={{ marginTop: '20px' }}>
                 {imgarr}
-            </div><br /><hr />
-
-
+            </div>
         </div>
     );
 

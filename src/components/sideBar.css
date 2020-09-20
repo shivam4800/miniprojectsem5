@@ -1,5 +1,29 @@
 .border {
     position: fixed;
     height: 100vh;
-    border-right: 2px solid #ece4e4;
+    border-right: 3px solid #474444;
+    z-index: 7;
+
+}
+.clr{
+    background-color: #706c6c;
+    color:#1a1515
+}
+.marginadj{
+    margin-left:70px;
+    margin-top:10px;
+    width:40%;
+
+}
+.backborder{
+    border-radius:20px;
+    border-color:#706c6c;
+    opacity:0.7;
+    background-color:#706c6c;
+    padding:7px;
+    color:#f5f1f1;
+}
+.backborder:hover{
+    opacity:1;
+    
 }

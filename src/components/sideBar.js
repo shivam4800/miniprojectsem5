@@ -7,18 +7,22 @@ import { Link } from 'react-router-dom';
 class SideBar extends React.Component {
 
     render() {
-        const icon = <i className="small home icon"></i>;
-        const icon1 = <i className="small clone icon"></i>;
-        const arrow = <i className="angle right icon"></i>;
+        const icon = <i className=" small home icon"></i>;
+        const icon1 = <i className="  small clone icon"></i>;
+        const arrow = <i className="  angle right icon"></i>;
         return (
             <div className="border">
 
-                <ProSidebar >
+                <ProSidebar>
+                    <SidebarHeader>
+                        <h3 style={{marginTop:'25px',marginLeft:'20px',marginBottom:'20px'}}>The Game Changer!</h3>
+                    </SidebarHeader><br/>
+                    <SidebarContent>
                     <Menu iconShape="circle">
-                        <MenuItem >The Game Changer!</MenuItem><br />
+                        
                         <MenuItem>
                             <div className="ui icon input">
-                                <input type="text" placeholder="Search..." className="margin" style={{ width: '30%' }} />
+                                <input type="text" placeholder="Search..." className="margin" style={{ width: '30%',height:'35px'}} />
                                 <i className="search icon"></i>
                             </div>
                         </MenuItem>
@@ -41,10 +45,15 @@ class SideBar extends React.Component {
                         <br />
 
                     </Menu>
-                    <SidebarFooter style={{ marginTop: '270px' }}>
-                        <Menu iconShape="circle">
-                            <MenuItem icon={icon}>Signin</MenuItem>
-                        </Menu>
+                    </SidebarContent>
+                    
+                    <SidebarFooter style={{ marginBottom:'1.5px' }}>
+                    <div className="marginadj" >
+                        <div className="backborder" >
+                        <i className=" clr  home icon"></i>
+                        Sign in
+                        </div>
+                    </div>
                     </SidebarFooter>
 
                 </ProSidebar>

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index1.css';
-import App1 from './Snakemain';
+import './Menu.css';
+import App1 from './App1';
 import * as serviceWorker from '../serviceWorker';
 
 

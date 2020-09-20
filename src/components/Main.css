@@ -1,6 +1,11 @@
 .size {
     margin-left: 20%;
-    /*background-color:#191920;*/
+    /*--color-1: #1e1e1f;
+    --color-2: rgb(70, 68, 77);
+    background: linear-gradient(100deg, var(--color-1), var(--color-2));*/
+   /* background-color:#363535;*/
+    width:80%;
+    
 }
 
 h1{
