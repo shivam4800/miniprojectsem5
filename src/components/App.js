@@ -17,7 +17,7 @@ class App extends React.Component {
             <Router>
             <div >
                     <SideBar />
-                    <Header/>
+                    <Route path="/" exact component={Header} />
                 
 
                     <Route path="/snake-game-page" exact component={SnakePage} />

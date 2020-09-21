@@ -6,7 +6,7 @@ import Modal from 'react-modal';
 const Header=()=>{
     const [header,setHeader]=useState(false);
     const [sign,setSign]=useState(false);
-    const nav=['Sign in','Login'];
+    
 
     const onOpenSign=()=>{
         setSign(true);
@@ -16,14 +16,7 @@ const Header=()=>{
     }
 
    
-    const navsarray=nav.map((nav)=> {
-        return(
-            <div  onClick={onOpenSign} className="headeritem" >
-            <i className="home icon"></i>
-            <a >{nav}</a>
-            </div>
-        );
-    });
+    
     
     const changeBackground=()=>{
         if(window.scrollY>80){
@@ -43,13 +36,21 @@ const Header=()=>{
                 The Game Changer!
             </div>
             <div className="right">
-                {navsarray} 
+                <div  onClick={onOpenSign} className="headeritem" >
+                    <i className="home icon"></i>
+                    <a >Sign up</a>
+                </div>
+                <div  onClick={onOpenSign} className="headeritem" >
+                    <i className="home icon"></i>
+                    <a >Login</a>
+                </div>
+
             </div>
             
             <Modal isOpen={sign} onRequestClose={onCloseSign} style={{overlay:{zIndex:'99',backgroundColor:'#b3b3b49f'},content:{marginLeft:'35%',width:'30%',height:'75%'}}} >
             <center><h1>Sign up</h1></center><br/>
             <button class="ui google plus button" style={{marginLeft:'35%'}}>
-                <i class="google plus icon"></i>
+                <i class="google  icon"></i>
                     Google
             </button><br/><br/>
             <div class="ui horizontal divider">
