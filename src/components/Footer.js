@@ -32,9 +32,7 @@ const Footer=()=>{
                     </div>
                     
                     </div>
-                    <div className="ui inverted section divider "></div>
-                    
-                    <div>bahfw</div>
+                   
                     
 
                 

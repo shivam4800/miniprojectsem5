@@ -8,8 +8,11 @@ export default class SnakePage extends Component {
 
         return (
             <div className='snake'>
+                <br/>
                 <h1>The Serpent Quest </h1>
-
+                <br />
+                <br />
+                <br/> 
                 <Link to='/snake-game-online' className='navlink' > <h2> Click here to play!</h2> </Link>
             </div>
         );

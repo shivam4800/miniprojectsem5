@@ -35,6 +35,7 @@ const Header=()=>{
 
     };
     window.addEventListener('scroll',changeBackground);
+
     
     return(
         
@@ -49,7 +50,7 @@ const Header=()=>{
             <Modal isOpen={sign} onRequestClose={onCloseSign} style={{overlay:{zIndex:'99',backgroundColor:'#b3b3b49f'},content:{marginLeft:'35%',width:'30%',height:'75%'}}} >
             <center><h1>Sign up</h1></center><br/>
             <button class="ui google plus button" style={{marginLeft:'35%'}}>
-                <i class="google plus icon"></i>
+                <i class="google icon"></i>
                     Google
             </button><br/><br/>
             <div class="ui horizontal divider">
