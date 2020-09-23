@@ -10,7 +10,7 @@
 
 }
 .sizeheader.active{
-    background-color: #19181a96;
+    background-color: #19181a9d;
     border:0px;
     transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) .6s;
 

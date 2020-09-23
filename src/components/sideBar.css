@@ -27,3 +27,58 @@
     opacity:1;
     
 }
+.homeactive{
+    background-color: #110f0f;
+    border-radius: 20px;
+  
+}
+.homenotactive{
+    background-color: #1d1c1c;
+}
+.aboutactive{
+    background-color: #110f0f;
+    border-radius: 20px;
+}
+.aboutnotactive{
+    background-color: #1d1c1c
+}
+.contactactive{
+    background-color: #110f0f;
+    border-radius: 20px;
+}
+.contactnotactive{
+    background-color: #1d1c1c;
+}
+.category1active{
+    background-color: #110f0f;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+.category1notactive{
+    background-color: #2e2b2b;
+}
+.category2active{
+    background-color: #110f0f;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+.category2notactive{
+    background-color: #2e2b2b;
+}
+.category3active{
+    background-color: #110f0f;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+.category3notactive{
+    background-color: #2e2b2b;
+}
+.category4active{
+    background-color: #110f0f;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+.category4notactive{
+    background-color: #2e2b2b;
+}
+
