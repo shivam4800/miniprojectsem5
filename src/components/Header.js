@@ -7,20 +7,28 @@ const Header=()=>{
     const [header,setHeader]=useState(false);
     const [sign,setSign]=useState(false);
     const [login,setLogin]=useState(false);
-    
+    const [firstname,setFirstname]=useState('');
+    const [lastname,setlastname]=useState('');
+    const [email,setEmail]=useState('');
+    const [password,setPassword]=useState('');
 
     const onOpenSign=()=>{
         setSign(true);
-    }
+    };
     const onCloseSign=()=>{
         setSign(false);
-    }
+    };
     const onOpenLogin=()=>{
         setLogin(true);
-    }
+    };
     const onCloseLogin=()=>{
         setLogin(false);
-    }
+    };
+    const onFirstChange=(e)=>{
+        console.log(e.target.value);
+        setFirstname(e.target.value); 
+
+    };
 
    
     const changeBackground=()=>{
@@ -33,6 +41,8 @@ const Header=()=>{
 
     };
     window.addEventListener('scroll',changeBackground);
+
+    
     
     return(
         
@@ -65,7 +75,7 @@ const Header=()=>{
                 <div className="inline fields">
                     <div className="nine wide field">
                         <label>Name</label>
-                        <input type="text" placeholder="First Name" style={{marginLeft:'22px'}}/>
+                        <input type="text" placeholder="First Name" style={{marginLeft:'22px'}} onChange={onFirstChange} value={firstname} />
                     </div>
     
                     <div className="six wide field">
@@ -91,7 +101,8 @@ const Header=()=>{
 
             </Modal>
 
-            <Modal isOpen={login} onRequestClose={onCloseLogin} style={{overlay:{zIndex:'99',backgroundColor:'#b3b3b49f'},content:{marginLeft:'35%',width:'30%',height:'75%'}}} >
+            <Modal isOpen={login} onRequestClose={onCloseLogin} style={{overlay:{zIndex:'99',backgroundColor:'#b3b3b49f'},
+            content:{marginLeft:'35%',width:'30%',height:'75%'}}} >
             <center><h1>Login</h1></center><br/>
             <button class="ui google plus button" style={{marginLeft:'35%'}}>
                 <i class="google  icon"></i>

@@ -4,27 +4,54 @@ import 'react-pro-sidebar/dist/css/styles.css';
 import './sideBar.css';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import Logo2 from '../images/logo2.png';
 
 class SideBar extends React.Component {
-    state={sign:false};
+    state={sign:false,home:false,contact:false,about:false,category1:false,category2:false,category3:false,category4:false};
     onOpenSign=()=>{
         this.setState({sign:true});
     }
     onCloseSign=()=>{
         this.setState({sign:false});
     }
+    onClickhome=()=>{
+        this.setState({home:!this.state.home,about:false,contact:false,category1:false,category2:false,category3:false,category4:false});
+    }
+    onClickabout=()=>{
+        this.setState({about:!this.state.about,home:false,contact:false,category1:false,category2:false,category3:false,category4:false});
+    }
+    onClickcontact=()=>{
+        this.setState({contact:!this.state.contact,home:false,about:false,category1:false,category2:false,category3:false,category4:false});
+    }
+    onClickcategory1=()=>{
+        this.setState({category1:!this.state.category1,home:false,about:false,contact:false,category2:false,category3:false,category4:false});
+    }
+    onClickcategory2=()=>{
+        this.setState({category2:!this.state.category2,home:false,about:false,contact:false,category1:false,category3:false,category4:false});
+    }
+    onClickcategory3=()=>{
+        this.setState({category3:!this.state.category3,home:false,about:false,contact:false,category1:false,category2:false,category4:false});
+    }
+    onClickcategory4=()=>{
+        this.setState({category4:!this.state.category4,home:false,about:false,contact:false,category1:false,category2:false,category3:false});
+    }
+    
 
     render() {
         const icon = <i className=" small home icon"></i>;
         const icon1 = <i className="  small clone icon"></i>;
         const arrow = <i className="  angle right icon"></i>;
+
         return (
             <div className="border">
 
                 <ProSidebar>
-                    <SidebarHeader>
-                        <h3 style={{marginTop:'25px',marginLeft:'20px',marginBottom:'20px'}}>The Game Changer!</h3>
-                    </SidebarHeader><br/>
+                    <SidebarHeader >
+                        <div style={{display:'inline-block'}}>
+                        <img src={Logo2} width ="30%" height="80%" style={{marginLeft:'1px'}}/> 
+                        The game changer
+                        </div>
+                    </SidebarHeader>
                     <SidebarContent>
                     <Menu iconShape="circle">
                         
@@ -36,20 +63,20 @@ class SideBar extends React.Component {
                         </MenuItem>
                         <br />
 
-                        <MenuItem icon={icon} >Home</MenuItem>
+                        <MenuItem icon={icon} onClick={this.onClickhome} className={this.state.home?'homeactive':'homenotactive'}>Home<Link to="/"  /></MenuItem>
                         <br />
-                        <SubMenu title="Categories" icon={icon1}>
+                        <SubMenu title="Categories" icon={icon1} >
 
-                            <MenuItem icon={arrow}>Memory Walkthrough..<Link to="/create" className="nav-link" /></MenuItem>
-                            <MenuItem icon={arrow}>Knowledge is Power!</MenuItem>
-                            <MenuItem icon={arrow}>Ah! That's Hot!</MenuItem>
-                            <MenuItem icon={arrow}>Act-React ;) </MenuItem>
+                            <MenuItem  onClick={this.onClickcategory1} className={this.state.category1?'category1active':'category1notactive'}>Memory Walkthrough..<Link to="/memory-walkthrough" /></MenuItem>
+                            <MenuItem onClick={this.onClickcategory2} className={this.state.category2?'category2active':'category2notactive'}>Knowledge is Power!<Link to="/knowledge" /></MenuItem>
+                            <MenuItem onClick={this.onClickcategory3} className={this.state.category3?'category3active':'category3notactive'}>Ah! That's Hot!<Link to="/hot-games" /></MenuItem>
+                            <MenuItem onClick={this.onClickcategory4} className={this.state.category4?'category4active':'category4notactive'}>Act-React ;) <Link to="/reaction-games" /></MenuItem>
                         </SubMenu>
 
                         <br />
-                        <MenuItem icon={icon} >About</MenuItem>
+                        <MenuItem icon={icon} onClick={this.onClickabout} className={this.state.about?'aboutactive':'aboutnotactive'} >About<Link to="/about"  /></MenuItem>
                         <br />
-                        <MenuItem icon={icon} >Contact Us</MenuItem>
+                        <MenuItem icon={icon} onClick={this.onClickcontact} className={this.state.contact?'contactactive':'contactnotactive'}>Contact Us<Link to="/contact"  /></MenuItem>
                         <br />
 
                     </Menu>
