@@ -47,7 +47,7 @@ class SideBar extends React.Component {
 
                 <ProSidebar>
                     <SidebarHeader >
-                        <div style={{display:'inline-block'}}>
+                        <div style={{display:'inline-block'}} className="fonts">
                         <img src={Logo2} width ="30%" height="80%" style={{marginLeft:'1px'}}/> 
                         The game changer
                         </div>

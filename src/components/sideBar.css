@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+.fonts{
+    font-family: 'Press Start 2P';
+    
+}
 .border {
     position: fixed;
     height: 100vh;
-    border-right: 3px solid #474444;
+    border-right: 6px solid #504f4f;
     z-index: 7;
 
 }

@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+.fonts{
+    font-family: 'Press Start 2P';
+    font-size:x-large;
+}
 .sizeheader{
     margin-left:20%;
     background-color: #746d6d00;
-    padding:30px;
+    padding:15px;
     position:fixed;
     width:80%;
     z-index: 4;
@@ -9,34 +14,43 @@
     transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) .6s;
 
 }
+.sizeheader a{
+    color:#f3f3ef;
+
+}
+.sizeheader a:hover{
+    color:#f5f4ed;
+
+}
+.sizeheader i{
+    color:#f8f7ec;
+
+}
+
 .sizeheader.active{
-    background-color: #19181a9d;
+    background-color: #c79125;
     border:0px;
     transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) .6s;
 
 }
-
+.sizeheader.active a{
+    color:#0b0c0b;
+}
+.sizeheader.active i{
+    color:#0b0c0b;
+}
+.sizeheader.active a:hover{
+    color: #0b0c0b;
+}
 .right{
-   
     margin-left:75%;
 }
-a{
-    color: #0b0c0b;
-}
-a:hover{
-    color: #0b0c0b;
-}
-
-
 .headeritem{
     display:inline-block;
     margin-right:5%;
-    padding:10px;
-    
+    padding:10px; 
 }
 .headeritem:hover{
     border-radius: 20px;
-    background-color: #b3b3b49f;
-    
-    opacity:1;
+    background-color: #f8c212be;
 }

@@ -42,15 +42,12 @@ const Header=()=>{
     };
     window.addEventListener('scroll',changeBackground);
 
-<<<<<<< HEAD
-=======
     
->>>>>>> 85fbf99d41c4f61eb62c3aa73954ff591eead93e
     
     return(
         
         <div className={header?'sizeheader active':'sizeheader'} >
-            <div>
+            <div className="fonts">
                 The Game Changer!
             </div>
             <div className="right">
@@ -68,11 +65,7 @@ const Header=()=>{
             <Modal isOpen={sign} onRequestClose={onCloseSign} style={{overlay:{zIndex:'99',backgroundColor:'#b3b3b49f'},content:{marginLeft:'35%',width:'30%',height:'75%'}}} >
             <center><h1>Sign up</h1></center><br/>
             <button class="ui google plus button" style={{marginLeft:'35%'}}>
-<<<<<<< HEAD
-                <i class="google icon"></i>
-=======
                 <i class="google  icon"></i>
->>>>>>> 85fbf99d41c4f61eb62c3aa73954ff591eead93e
                     Google
             </button><br/><br/>
             <div class="ui horizontal divider">
