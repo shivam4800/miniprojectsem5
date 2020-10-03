@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 .fonts{
     font-family: 'Press Start 2P';
-    
+    font-size:1%;
 }
 .border {
     position: fixed;
     height: 100vh;
-    border-right: 6px solid #504f4f;
+    border-right: 2px solid #504f4f;
     z-index: 7;
 
 }
@@ -38,21 +38,21 @@
   
 }
 .homenotactive{
-    background-color: #1d1c1c;
+    background-color: #1d1c1c00;
 }
 .aboutactive{
     background-color: #110f0f;
     border-radius: 20px;
 }
 .aboutnotactive{
-    background-color: #1d1c1c
+    background-color: #1d1c1c00
 }
 .contactactive{
     background-color: #110f0f;
     border-radius: 20px;
 }
 .contactnotactive{
-    background-color: #1d1c1c;
+    background-color: #1d1c1c00;
 }
 .category1active{
     background-color: #110f0f;
@@ -60,7 +60,7 @@
     margin-right: 20px;
 }
 .category1notactive{
-    background-color: #2e2b2b;
+    background-color: #2e2b2b00;
 }
 .category2active{
     background-color: #110f0f;
@@ -68,7 +68,7 @@
     margin-right: 20px;
 }
 .category2notactive{
-    background-color: #2e2b2b;
+    background-color: #2e2b2b00;
 }
 .category3active{
     background-color: #110f0f;
@@ -76,7 +76,7 @@
     margin-right: 20px;
 }
 .category3notactive{
-    background-color: #2e2b2b;
+    background-color: #2e2b2b00;
 }
 .category4active{
     background-color: #110f0f;
@@ -84,6 +84,6 @@
     margin-right: 20px;
 }
 .category4notactive{
-    background-color: #2e2b2b;
+    background-color: #2e2b2b00;
 }
 

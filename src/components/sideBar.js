@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import Logo2 from '../images/logo2.png';
 
+
 class SideBar extends React.Component {
-    state={sign:false,home:false,contact:false,about:false,category1:false,category2:false,category3:false,category4:false};
+    state={sign:false,home:false,contact:false,about:false,category1:false,category2:false,category3:false,category4:false,search:''};
     onOpenSign=()=>{
         this.setState({sign:true});
     }
@@ -36,6 +37,12 @@ class SideBar extends React.Component {
         this.setState({category4:!this.state.category4,home:false,about:false,contact:false,category1:false,category2:false,category3:false});
     }
     
+    onInputChange=(e) => { //using arrow function instead of normal func for resolving the problem of this.
+        
+        this.setState({search:e.target.value})
+        this.props.onSubmit(this.state.search); //for showing the value in input field by calling the function in parent App.js and giving back the value of the input field to app.js 
+    }
+    
 
     render() {
         const icon = <i className=" small home icon"></i>;
@@ -47,24 +54,26 @@ class SideBar extends React.Component {
 
                 <ProSidebar>
                     <SidebarHeader >
-                        <div style={{display:'inline-block'}} className="fonts">
-                        <img src={Logo2} width ="30%" height="80%" style={{marginLeft:'1px'}}/> 
-                        The game changer
+                        <div style={{display:'inline-block'}}>
+                        <img src={Logo2} width ="30%" height="55%" style={{marginLeft:'1px'}}/> 
+                            The game changer
                         </div>
                     </SidebarHeader>
                     <SidebarContent>
                     <Menu iconShape="circle">
                         
                         <MenuItem>
+                            <form className="ui form" onSubmit={(e)=>e.preventDefault()}>
                             <div className="ui icon input">
-                                <input type="text" placeholder="Search..." className="margin" style={{ width: '30%',height:'35px'}} />
+                                <input type="text" placeholder="Search..." className="margin" style={{ width: '30%',height:'35px'}} value={this.state.search} onChange={(e)=>this.onInputChange(e)}/>
                                 <i className="search icon"></i>
                             </div>
+                            </form>
                         </MenuItem>
                         <br />
 
                         <MenuItem icon={icon} onClick={this.onClickhome} className={this.state.home?'homeactive':'homenotactive'}>Home<Link to="/"  /></MenuItem>
-                        <br />
+                        
                         <SubMenu title="Categories" icon={icon1} >
 
                             <MenuItem  onClick={this.onClickcategory1} className={this.state.category1?'category1active':'category1notactive'}>Memory Walkthrough..<Link to="/memory-walkthrough" /></MenuItem>
@@ -73,11 +82,11 @@ class SideBar extends React.Component {
                             <MenuItem onClick={this.onClickcategory4} className={this.state.category4?'category4active':'category4notactive'}>Act-React ;) <Link to="/reaction-games" /></MenuItem>
                         </SubMenu>
 
-                        <br />
+                        
                         <MenuItem icon={icon} onClick={this.onClickabout} className={this.state.about?'aboutactive':'aboutnotactive'} >About<Link to="/about"  /></MenuItem>
-                        <br />
+                        
                         <MenuItem icon={icon} onClick={this.onClickcontact} className={this.state.contact?'contactactive':'contactnotactive'}>Contact Us<Link to="/contact"  /></MenuItem>
-                        <br />
+                        
 
                     </Menu>
                     </SidebarContent>
@@ -86,7 +95,7 @@ class SideBar extends React.Component {
                     <div className="marginadj" onClick={this.onOpenSign} >
                         <div className="backborder" >
                         <i className=" clr  home icon"></i>
-                        Sign up
+                        Feedback
                         </div>
                     </div>
                     </SidebarFooter>

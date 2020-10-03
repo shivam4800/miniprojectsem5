@@ -22,16 +22,20 @@ import ReactionGames from './gamespage/ReactionGames';
 
 
 class App extends React.Component {
+    state={search:''};
+    onSearchSubmit=(search)=>{
+        console.log(search);
+        this.setState({search:search});
+
+    };
     render() {
         return (
             <Router>
             <div >
-                    <SideBar />
+                    <SideBar onSubmit={this.onSearchSubmit}/>
                     <Route path="/" exact component={Header} />
-                
-
                     <Route path="/snake-game-page" exact component={SnakePage} />
-                    <Route path="/" exact component={Main} />
+                    <Route path="/" exact render={props => (<Main {...props} search={this.state.search} />)}/>
                     <Route path="/create" exact component={SideBar1} />
                     <Route path="/snake-game-online" exact component={Menu} />
                     <Route path="/categories" exact component={Category} />

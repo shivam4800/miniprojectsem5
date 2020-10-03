@@ -1,12 +1,14 @@
 import React from 'react';
 import './Main.css';
-import { Link } from 'react-router-dom';
 import main from '../images/main.jpg';
+import {datas} from '../shared/datas';
 
-const Main = () => {
-    const imgsrc = [{ src: 'https://image.dosgamesarchive.com/screenshots/snake2.gif', title: 'The Serpent Quest', description:'The Classic Snake Game from your Keypad devices is finally making  debut to the browser!' }, { src: 'https://s3.amazonaws.com/tetris-www/assets/article/2017/06/14/tetris-lingo-feature_feature.jpg',title:'Tetris',description:'The best memories of childhood are finally coming to you, but with a twist!'}
-    ];
-    const imgarr = imgsrc.map((img) => {
+const Main = (props) => {
+    const filtersearch=datas.filter((data)=>{
+        return data.title.toLowerCase().indexOf(props.search.toLowerCase())!==-1;
+    })
+    
+    const cardsclassic = filtersearch.slice(0,2).map((img) => {
         return (
 
             <div class="ui link cards" style={{ display: 'inline-block'}}>
@@ -22,16 +24,12 @@ const Main = () => {
                     </div>
                 </div>
             </div>
-
-
         );
     }
     );
 
-    const imgsrc1 = [{ src: 'https://image.dosgamesarchive.com/screenshots/snake2.gif', title: 'The Serpent Quest 2', description: 'Twice ' }, { src: 'https://s3.amazonaws.com/tetris-www/assets/article/2017/06/14/tetris-lingo-feature_feature.jpg', title: 'Tetris', description: 'The best memories of childhood are finally coming to you, but with a twist! Let the showdown begin!' }
-    ];
-
-    const imgarr1 = imgsrc1.map((img) => {
+    
+    const cardsaction = filtersearch.slice(2,4).map((img) => {
         return (
             <div class="ui link cards" style={{ display: 'inline-block'}}>
                 <div class="card" style={{  marginLeft: '60px',maxWidth:'65%',zIndex:'1'}}>
@@ -63,27 +61,16 @@ const Main = () => {
                 <h1>Back To The Classics! </h1>
             </div>
             <div style={{ marginTop: '20px' }}>
-                {imgarr}
-            </div><br /><hr />
+                {cardsclassic}
+            </div><br />
             <div>
                 <h1>Action games</h1>
             </div>
             <div style={{ marginTop: '20px' }}>
-                {imgarr1}
-            </div><br /><hr />
+                {cardsaction}
+            </div><br />
 
-            <div>
-                <h1>Hotflix </h1>
-            </div>
-            <div style={{ marginTop: '20px' }}>
-                {imgarr}
-            </div><br /><hr />
-            <div>
-                <h1>Action games</h1>
-            </div>
-            <div style={{ marginTop: '20px' }}>
-                {imgarr}
-            </div>
+            
         </div>
     );
 
