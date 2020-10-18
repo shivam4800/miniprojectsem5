@@ -1,12 +1,13 @@
 .footer-main {
     color: white;
-    background-color: #19181A;
+    /*background-color: #262527;*/
+    background-image: linear-gradient(45deg, #040405 10%, #0b0d0d 10%, #0b0d0d 50%, #040405 50%, #040405 60%, #0b0d0d 60%, #0b0d0d 100%);
+    background-size: 7.07px 7.07px;
     padding-top: 3em;
     position: relative;
-    bottom: 0;
-    width: 80%;
-    margin-left:20%;
-    
+    padding-bottom: 10%;
+    width: 100%;
+    left:0; 
   }
   
   .margin{

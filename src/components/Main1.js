@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react';
-import './Main.css';
 import main from '../images/main.jpg';
 import game from '../images/gameblur.jpg';
 import {datas} from '../shared/datas';
 import console from '../images/console.jpg';
-import {Link } from 'react-scroll'
+import './Main1.css';
 
-const Main = (props) => {
+
+const Main1 = (props) => {
     const [search,setSearch]=useState('');
     const [imgurl,setimgurl]=useState(main);
     const url=[game,game];
@@ -67,33 +67,44 @@ const Main = (props) => {
 
     return (
         <div className="size">
-            <div className="image " style={{backgroundImage:`url(${imgurl})`}}>
-                <div className="container">
-                    <div className="row">
-                        <div className="span3 offset3" style={{backgroundColor:'yellow'}}  >
-                            THE POWER OF GAMING 
+            <div className="bg">
+                <div className="container" >
+                    <div className="row text-center">
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8 boxstyle">
+                            <h1  style={{textAlign:'left'}}>The Power of gaming </h1>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="ui stackable two column grid" style={{backgroundImage: 'linear-gradient(45deg, #d9e0d7 10%, #faf9f0 10%, #faf9f0 50%, #d9e0d7 50%, #d9e0d7 60%, #faf9f0 60%, #faf9f0 100%)',
-    backgroundSize: '7.07px 7.07px'}} >
-                <div className="update-center ">
-                    <div className="parallelogram"></div>
-                    <div className="parallelogram"></div>
+            
+            <div className="white">
+                <div className="container">
+                    <div className="row text-center">
+                        <div className="col-12 col-sm-6 col-md-6 col-lg-6">
+                            Hello
+                        </div>
+                        <div className="col-12 col-sm-6 col-md-6 col-lg-6 ">
+                            Appp
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="division">
-                <div className="menu ">
-                    <div className="mainitems">
-                        <a>Latest</a>
-                    </div>
-                    <div className="mainitems">
-                        <a>Available</a>
-                    </div>
-                    <div class="ui inverted divider" style={{display:'inline'}}></div>
-                    
-                    
+            
+            <div className="black">
+                <div className="container">
+                        <div className="row text-center">
+                            <div className="menu" >
+                                <div className="mainitem">
+                                <a>Latest</a>
+                                </div>
+                                <div className="mainitem">
+                                <a>Avaiable</a>
+                                </div> 
+                            </div>
+                            <div className="col-6 col-sm-6">
+
+                            </div>
+                        </div>
                 </div>
             </div>
             
@@ -109,19 +120,20 @@ const Main = (props) => {
                 
                 <h1>Back To The Classics! </h1>
             </div>
-            <div style={{ marginTop: '20px' }}>
+            <div s>
                 {cardsclassic}
                 
             </div><br />
             <div>
                 <h1>Action games</h1>
             </div>
-            <div style={{ marginTop: '20px' }}>
+            <div >
                 {cardsaction}
-            </div><br />
             </div>
+            </div>
+            
         </div>
     );
 };
 
-export default Main;
+export default Main1;

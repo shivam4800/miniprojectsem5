@@ -1,9 +1,10 @@
 import React,{useState} from 'react';
 import './Header.css';
 import Modal from 'react-modal';
+import Logo from '../images/logo2.png';
 
 
-const Header=()=>{
+const Header=(props)=>{
     const [header,setHeader]=useState(false);
     const [sign,setSign]=useState(false);
     const [login,setLogin]=useState(false);
@@ -30,7 +31,6 @@ const Header=()=>{
 
     };
 
-   
     const changeBackground=()=>{
         if(window.scrollY>80){
             setHeader(true);
@@ -42,25 +42,53 @@ const Header=()=>{
     };
     window.addEventListener('scroll',changeBackground);
 
-    
-    
     return(
-        
-        <div className={header?'sizeheader active':'sizeheader'} >
-            <div className="fonts">
-                The Game Changer!
+        <div className={header?"headers":"header-transparent"}>
+            <div className="container">
+                <div className="row text-center row-padding">
+                    <div className="col-xs-2 col-sm-2 ">
+                        <div className="sidebar-icon">
+                            <i className="large sidebar icon" onClick={props.toggleMenu}></i>
+                        </div>
+                    </div>
+                    <div className="col-xs-5 col-sm-5 col-md-5 fonts">
+                        The game changer
+                    </div>
+                    <div className="col-xs-5 col-sm-5 col-md-5" style={{textAlign:'right'}}>
+                        <div className="headeritem">
+                            <a>Signin</a>
+                        </div>
+                        <div className="headeritem" id="login">
+                            <a>Login</a>
+                        </div>
+                    </div>
+                </div>
+                <div className="row text-center">
+                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 icon-social" >
+                        <div class="ui icon align-social" data-tooltip="Add users" data-inverted="">
+                            <i className="world icon " ></i>
+                        </div>
+                        <div class="ui icon align-social" data-tooltip="Facebook" data-inverted="">
+                            <i className=" facebook icon " ></i>
+                        </div>
+                        <div class="ui icon align-social" data-tooltip="Twitter" data-inverted="">
+                            <i className="twitter icon " ></i>
+                        </div>
+                        <div class="ui icon align-social" data-tooltip="Instagram" data-inverted="">
+                            <i className="instagram icon " ></i>
+                        </div>
+                        <div class="ui icon align-social " data-tooltip="Linkedin" data-inverted="">
+                            <i className="linkedin icon " ></i>
+                        </div> 
+                       
+                    </div>
+                </div>
             </div>
-            <div className="right">
-                <div  onClick={onOpenSign} className="headeritem" >
-                    <i className="home icon"></i>
-                    <a >Sign up</a>
-                </div>
-                <div  onClick={onOpenLogin} className="headeritem" >
-                    <i className="home icon"></i>
-                    <a >Login</a>
-                </div>
 
-            </div>
+            
+                    
+                    
+                    
             
             <Modal isOpen={sign} onRequestClose={onCloseSign} style={{overlay:{zIndex:'99',backgroundColor:'#b3b3b49f'},content:{marginLeft:'35%',width:'30%',height:'75%'}}} >
             <center><h1>Sign up</h1></center><br/>
@@ -77,7 +105,6 @@ const Header=()=>{
                         <label>Name</label>
                         <input type="text" placeholder="First Name" style={{marginLeft:'22px'}} onChange={onFirstChange} value={firstname} />
                     </div>
-    
                     <div className="six wide field">
                         <input type="text" placeholder="Last Name"/>
                     </div>
@@ -95,8 +122,6 @@ const Header=()=>{
                     </div>
                 </div><br/>
                 <div className="ui submit button" style={{width:'30%',marginLeft:'35%',backgroundColor:' darkcyan'}}>Sign up</div>
-                
-
             </div>
 
             </Modal>
