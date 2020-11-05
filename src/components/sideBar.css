@@ -1,89 +1,40 @@
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
-.fonts{
-    font-family: 'Press Start 2P';
-    font-size:1%;
+.sidebar-div{
+    position:fixed;
+    height:100%;
+    z-index:10;
+    /*background-color:#121212;*/
+    min-width:53px;
+    background-image: linear-gradient(45deg, #040405 10%, #0b0d0d 10%, #0b0d0d 50%, #040405 50%, #040405 60%, #0b0d0d 60%, #0b0d0d 100%);
+    background-size: 7.07px 7.07px;
 }
-.border {
-    position: fixed;
-    height: 100vh;
-    border-right: 2px solid #504f4f;
-    z-index: 7;
-
+.disappear{
+    display:none;
+    z-index: 10;
 }
-.clr{
-    background-color: #706c6c;
-    color:#1a1515
-}
-.marginadj{
-    margin-left:70px;
-    margin-top:10px;
-    width:40%;
-
-}
-.backborder{
-    border-radius:20px;
-    border-color:#706c6c;
-    opacity:0.7;
-    background-color:#706c6c;
-    padding:7px;
-    color:#f5f1f1;
-}
-.backborder:hover{
-    opacity:1;
+.close{
+    padding-bottom: 10px;
     
 }
-.homeactive{
-    background-color: #110f0f;
-    border-radius: 20px;
-  
+.ui.secondary.pointing.inverted.vertical.icon.menu .active.item {
+    border-color: #38e2ee;
+   
+  }
+.clr i{
+    color:#38e2ee;
 }
-.homenotactive{
-    background-color: #1d1c1c00;
+.clr1 i{
+    color:#515555
 }
-.aboutactive{
-    background-color: #110f0f;
-    border-radius: 20px;
+@media only screen and (max-width:1000px){
+    
+    .sidebar-div{
+        display: none;
+        
+    }
+    .disappear{
+        display: block;
+    }
+
 }
-.aboutnotactive{
-    background-color: #1d1c1c00
-}
-.contactactive{
-    background-color: #110f0f;
-    border-radius: 20px;
-}
-.contactnotactive{
-    background-color: #1d1c1c00;
-}
-.category1active{
-    background-color: #110f0f;
-    border-radius: 20px;
-    margin-right: 20px;
-}
-.category1notactive{
-    background-color: #2e2b2b00;
-}
-.category2active{
-    background-color: #110f0f;
-    border-radius: 20px;
-    margin-right: 20px;
-}
-.category2notactive{
-    background-color: #2e2b2b00;
-}
-.category3active{
-    background-color: #110f0f;
-    border-radius: 20px;
-    margin-right: 20px;
-}
-.category3notactive{
-    background-color: #2e2b2b00;
-}
-.category4active{
-    background-color: #110f0f;
-    border-radius: 20px;
-    margin-right: 20px;
-}
-.category4notactive{
-    background-color: #2e2b2b00;
-}
+
 

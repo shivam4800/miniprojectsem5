@@ -1,149 +1,136 @@
 import React from 'react';
-import { ProSidebar, Menu, MenuItem, SubMenu, SidebarFooter, SidebarContent, SidebarHeader } from 'react-pro-sidebar'; //npm install react-pro-sidebar
-import 'react-pro-sidebar/dist/css/styles.css';
+import {Link} from'react-router-dom';
+import Logo from '../images/logo2.png';
+import SubMenu from './SubMenu';
 import './sideBar.css';
-import { Link } from 'react-router-dom';
-import Modal from 'react-modal';
-import Logo2 from '../images/logo2.png';
+import cn from 'classnames';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 
-class SideBar extends React.Component {
-    state={sign:false,home:false,contact:false,about:false,category1:false,category2:false,category3:false,category4:false,search:''};
-    onOpenSign=()=>{
-        this.setState({sign:true});
-    }
-    onCloseSign=()=>{
-        this.setState({sign:false});
-    }
+
+class sideBar extends React.Component{
+    state={home:false,contact:false,about:false,category1:false,category2:false,category3:false,category4:false,search:false};
+    
     onClickhome=()=>{
-        this.setState({home:!this.state.home,about:false,contact:false,category1:false,category2:false,category3:false,category4:false});
+        this.setState({home:!this.state.home,about:false,contact:false,category1:false,category2:false,category3:false,category4:false,search:false});
+        console.log(this.state.home);
     }
     onClickabout=()=>{
-        this.setState({about:!this.state.about,home:false,contact:false,category1:false,category2:false,category3:false,category4:false});
+        this.setState({about:!this.state.about,home:false,contact:false,category1:false,category2:false,category3:false,category4:false,search:false});
     }
     onClickcontact=()=>{
-        this.setState({contact:!this.state.contact,home:false,about:false,category1:false,category2:false,category3:false,category4:false});
+        this.setState({contact:!this.state.contact,home:false,about:false,category1:false,category2:false,category3:false,category4:false,search:false});
     }
-    onClickcategory1=()=>{
-        this.setState({category1:!this.state.category1,home:false,about:false,contact:false,category2:false,category3:false,category4:false});
-    }
-    onClickcategory2=()=>{
-        this.setState({category2:!this.state.category2,home:false,about:false,contact:false,category1:false,category3:false,category4:false});
-    }
-    onClickcategory3=()=>{
-        this.setState({category3:!this.state.category3,home:false,about:false,contact:false,category1:false,category2:false,category4:false});
-    }
-    onClickcategory4=()=>{
-        this.setState({category4:!this.state.category4,home:false,about:false,contact:false,category1:false,category2:false,category3:false});
+    onClicksearch=()=>{
+        this.setState({search:!this.state.search,home:false,about:false,category1:false,category2:false,category3:false,category4:false,contact:false});
     }
     
-    onInputChange=(e) => { //using arrow function instead of normal func for resolving the problem of this.
+    
+    render(){
+        const classes = cn(
+            'ui','sidebar', 'overlay','right','vertical','menu', 'animating',
+            {'visible' : this.props.toggle}
+        );
+        const onPageLoad=()=>{
+            if(this.props.onRefresh ==='/about'){
+                this.setState({about:true,home:false,contact:false,search:false});
+            } 
+            if(this.props.onRefresh ==='/contact'){
+                this.setState({contact:true,about:false,home:false,search:false});
+            } 
+            if(this.props.onRefresh ==='/search'){
+                this.setState({search:true,home:false,about:false,contact:false});
+            } 
+            if(this.props.onRefresh ==='/'){
+                this.setState({home:true});
+            } 
+
+        }
+        window.addEventListener('load',onPageLoad);
         
-        this.setState({search:e.target.value})
-        this.props.onSubmit(this.state.search); //for showing the value in input field by calling the function in parent App.js and giving back the value of the input field to app.js 
-    }
-    
-
-    render() {
-        const icon = <i className=" small home icon"></i>;
-        const icon1 = <i className="  small clone icon"></i>;
-        const arrow = <i className="  angle right icon"></i>;
-
-        return (
-            <div className="border">
-
-                <ProSidebar>
-                    <SidebarHeader >
-                        <div style={{display:'inline-block'}}>
-                        <img src={Logo2} width ="30%" height="55%" style={{marginLeft:'1px'}}/> 
-                            The game changer
+        return(
+            <div>
+                <OutsideClickHandler onOutsideClick={this.props.onOutsideClose}>
+                <div className="disappear">
+                    <div className={classes}>
+                        <div className="col-xs-12 col-sm-12 close">
+                            <i className="close icon "  onClick={this.props.onClose}></i>
                         </div>
-                    </SidebarHeader>
-                    <SidebarContent>
-                    <Menu iconShape="circle">
-                        
-                        <MenuItem>
-                            <form className="ui form" onSubmit={(e)=>e.preventDefault()}>
-                            <div className="ui icon input">
-                                <input type="text" placeholder="Search..." className="margin" style={{ width: '30%',height:'35px'}} value={this.state.search} onChange={(e)=>this.onInputChange(e)}/>
-                                <i className="search icon"></i>
-                            </div>
-                            </form>
-                        </MenuItem>
-                        <br />
-
-                        <MenuItem icon={icon} onClick={this.onClickhome} className={this.state.home?'homeactive':'homenotactive'}>Home<Link to="/"  /></MenuItem>
-                        
-                        <SubMenu title="Categories" icon={icon1} >
-
-                            <MenuItem  onClick={this.onClickcategory1} className={this.state.category1?'category1active':'category1notactive'}>Memory Walkthrough..<Link to="/memory-walkthrough" /></MenuItem>
-                            <MenuItem onClick={this.onClickcategory2} className={this.state.category2?'category2active':'category2notactive'}>Knowledge is Power!<Link to="/knowledge" /></MenuItem>
-                            <MenuItem onClick={this.onClickcategory3} className={this.state.category3?'category3active':'category3notactive'}>Ah! That's Hot!<Link to="/hot-games" /></MenuItem>
-                            <MenuItem onClick={this.onClickcategory4} className={this.state.category4?'category4active':'category4notactive'}>Act-React ;) <Link to="/reaction-games" /></MenuItem>
-                        </SubMenu>
-
-                        
-                        <MenuItem icon={icon} onClick={this.onClickabout} className={this.state.about?'aboutactive':'aboutnotactive'} >About<Link to="/about"  /></MenuItem>
-                        
-                        <MenuItem icon={icon} onClick={this.onClickcontact} className={this.state.contact?'contactactive':'contactnotactive'}>Contact Us<Link to="/contact"  /></MenuItem>
-                        
-
-                    </Menu>
-                    </SidebarContent>
-                    
-                    <SidebarFooter style={{ marginBottom:'1.5px' }}>
-                    <div className="marginadj" onClick={this.onOpenSign} >
-                        <div className="backborder" >
-                        <i className=" clr  home icon"></i>
-                        Feedback
+                        <div className="col-xs-12 col-sm-12 ">
+                            <ul>
+                                <Link to="/"><li className={this.state.home?'active item ':'item'}  onClick={this.onClickhome}><i className="teal home icon"></i> Home</li></Link>
+                                <Link to="/about"><li className={this.state.about?'active item':'item'} onClick={this.onClickabout}><i className="teal info icon"></i>About</li></Link>
+                                <Link to="/contact" ><li className={this.state.contact?'active item':'item'} onClick={this.onClickcontact}><i className="teal phone icon"></i>Contacts</li></Link>
+                                <Link to="/search" ><li className={this.state.search?'active item':'item'} onClick={this.onClicksearch}><i className="teal search icon"></i>Search</li></Link>
+                                <div class="ui pointing dropdown link item">
+    <span class="text">Shopping</span>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="header">Categories</div>
+      <div class="item">
+        <i class="dropdown icon"></i>
+        <span class="text">Clothing</span>
+        <div class="menu">
+          <div class="header">Mens</div>
+          <div class="item">Shirts</div>
+          <div class="item">Pants</div>
+          <div class="item">Jeans</div>
+          <div class="item">Shoes</div>
+          <div class="divider"></div>
+          <div class="header">Womens</div>
+          <div class="item">Dresses</div>
+          <div class="item">Shoes</div>
+          <div class="item">Bags</div>
+        </div>
+      </div>
+      <div class="item">Home Goods</div>
+      <div class="item">Bedroom</div>
+      <div class="divider"></div>
+      <div class="header">Order</div>
+      <div class="item">Status</div>
+      <div class="item">Cancellations</div>
+    </div>
+  </div>
+                            </ul>
                         </div>
-                    </div>
-                    </SidebarFooter>
-
-                </ProSidebar>
-                <Modal isOpen={this.state.sign} onRequestClose={this.onCloseSign} style={{overlay:{zIndex:'99',backgroundColor:'#b3b3b49f'},content:{marginLeft:'35%',width:'30%',height:'75%'}}} >
-                    <center><h1>Sign up</h1></center><br/>
-                    <button class="ui google plus button" style={{marginLeft:'35%'}}>
-                    <i class="google  icon"></i>
-                    Google
-                    </button><br/><br/>
-                <div class="ui horizontal divider">
-                    Or
-                </div>
-                <div className="ui form">
-                <div className="inline fields">
-                    <div className="nine wide field">
-                        <label>Name</label>
-                        <input type="text" placeholder="First Name" style={{marginLeft:'22px'}}/>
-                    </div>
-    
-                    <div className="six wide field">
-                        <input type="text" placeholder="Last Name"/>
+                       
                     </div>
                 </div>
-                <div className="inline fields">
-                    <div className="nine wide field">
-                        <label>Email</label>
-                        <input type="text" placeholder="Email" style={{marginLeft:'23px'}}/>
-                    </div>
+                </OutsideClickHandler>
+                <div className="sidebar-div">
+                <div className="ui  secondary pointing inverted vertical icon menu" style={{marginTop:'180px'}}>
+                    <Link to="/"><a className={this.state.home?'active item clr':'item clr1'} style={{marginBottom:'20px'}}  onClick={this.onClickhome}>
+                        <div class="ui icon " data-tooltip="Home"  data-position="right center">
+                            <i class="home icon"></i>
+                        </div>
+                        
+                    </a></Link>
+                    <Link to="/about"><a className={this.state.about?'active item clr':'item clr1'} style={{marginBottom:'20px'}} onClick={this.onClickabout}>
+                        <div class="ui icon " data-tooltip="About"  data-position="right center">
+                            <i class=" user icon " ></i>
+                        </div>
+                        
+                    </a></Link>
+                    <Link to="/contact"><a className={this.state.contact?'active item clr':'item clr1'} style={{marginBottom:'20px'}} onClick={this.onClickcontact}>
+                        <div class="ui icon " data-tooltip="Contact"  data-position="right center">
+                            <i class=" phone icon " ></i>
+                        </div>
+                        
+                    </a></Link>
+                    <Link to="/search" className={this.state.search?'active item clr':'item clr1'} style={{marginBottom:'20px'}} onClick={this.onClicksearch}><a>
+                        <div class="ui icon " data-tooltip="Search"  data-position="right center">
+                            <i className="search icon"></i>
+                        </div>
+                    </a></Link>
+                    {/*<a >
+                        <SubMenu/>
+                    </a>*/} 
                 </div>
-                <div className="inline fields">
-                    <div className="nine wide field">
-                        <label>Password</label>
-                        <input type="text" placeholder="Password"/>
-                    </div>
-                </div><br/>
-                <div className="ui submit button" style={{width:'30%',marginLeft:'35%',backgroundColor:' darkcyan'}}>Sign up</div>
-                
-
-            </div>
-
-            </Modal>
-
+                </div>    
             </div>
         );
     }
-
 }
+    
 
-export default SideBar;
+export default sideBar;

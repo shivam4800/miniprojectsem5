@@ -1,14 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+.fonts{
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    color :white; 
+}
 .size {
-    margin-left: 20%;
    /* --color-1: #121214;
     --color-2: rgb(70, 68, 77);
     background: linear-gradient(100deg, var(--color-1), var(--color-2));*/
-    background-color:#111010;
-    width:80%;
+    /*background-color:#101313;*/
+    width:100%;
     
 }
 
 h1{
     text-align:center;
-    color: darkcyan;
+    color: rgb(190, 171, 59);
+}
+.inputsearch{
+    z-index: 4;
+    width:100%;
+    margin-top:6%; 
+    height:10%;
+    display:inline-block;
+}
+.design{
+    margin-left:80%;
+}
+.align{
+    margin-left:20%;
+    margin-top: 8%;
+    width:30%;
+    height:fit-content; 
+}
+
+.image{
+    width:100%;
+    height:100%;
+    padding-bottom:20%;
+    padding-top:10%;  
+}
+
+.division{
+    background-image: linear-gradient(45deg, #040405 10%, #0b0d0d 10%, #0b0d0d 50%, #040405 50%, #040405 60%, #0b0d0d 60%, #0b0d0d 100%);
+    background-size: 7.07px 7.07px;
+    padding-bottom:30%;
+    
+    
+    
+}
+.menu{
+    margin:auto;
+    width:50%;
+    padding-top:30px;
+    border-bottom: 1px solid rgb(78, 75, 75);
+}
+.black{
+    background-image: linear-gradient(45deg, #040405 10%, #0b0d0d 10%, #0b0d0d 50%, #040405 50%, #040405 60%, #0b0d0d 60%, #0b0d0d 100%);
+    background-size: 7.07px 7.07px;
+}
+.white{
+    background-image: linear-gradient(45deg, #d9e0d7 10%, #faf9f0 10%, #faf9f0 50%, #d9e0d7 50%, #d9e0d7 60%, #faf9f0 60%, #faf9f0 100%);
+    background-size: 7.07px 7.07px;
+}
+.left-box{
+    text-align:left;
+    background: #75737323;
+    
+    border-left:4px solid #c49c19;
+    color: white;
+}
+.link-button{
+    display:inline-block;
+    margin-left:10%;
+    border-radius:10px;
+    background-color: #e6d11983;
+    padding:10px;
+    margin-top: 5%;
+}
+.link-button a{
+    color:white; 
+}
+.link-button:hover{
+    background-color: #dac71d;
+}
+.mainitems{
+    margin-right:10%;
+    
+    display: inline-block;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    padding-bottom:10px;
+    
+}
+.mainitems a{
+    color:white;
+}
+.parallelogram {
+	width: 200px;
+	height: 200px;
+	transform: skew(-20deg);
+    background: #55555544;
+    display: inline-block;
+    margin-right:15%;
+    margin-top:7%;
+    margin-bottom:9%;
+    border-left:2px solid #c49c19;
+    
+    
+}
+
+.update-center{
+    margin:auto;
+    width:50%;
+    
 }

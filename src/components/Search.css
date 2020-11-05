@@ -1,0 +1,24 @@
+.search-text{
+    font-size: xx-large;
+    color: rgb(92, 213, 243);
+    display: inline-block;
+}
+.search-display{
+    display: inline-block;
+    font-size: xx-large;
+}
+.search-padding{
+    padding-top: 200px;
+}
+.search-input{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #42c1e0;
+    width:80%;
+    outline:none;
+   
+}
+.search-input:focus{
+    border-bottom: 1px solid #47e7ec;
+    
+}

@@ -1,9 +1,9 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React,{useState} from 'react';
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import SideBar from './sideBar';
 import Spinner from './Spinner';
-import SideBar1 from "./try";
-import Main from './Main';
+import Try from './try';
+import Main1 from './Main1';
 import SnakePage from './SnakePage';
 import Menu from './Menu';
 import Header from './Header';
@@ -15,28 +15,50 @@ import Memory from './gamespage/Memory';
 import Knowledge from './gamespage/Knowledge';
 import HotGames from './gamespage/HotGames';
 import ReactionGames from './gamespage/ReactionGames';
+import Search from './Search';
+import cx from 'classnames';
 
 
-
-
-
-
-class App extends React.Component {
-    state={search:''};
-    onSearchSubmit=(search)=>{
+ const App=()=> {
+    const [search,setSearch]=useState('');
+    const [toggle,setToggle]=useState(false);
+    const pathname = window.location.pathname;
+    console.log(pathname);
+    {/*const onSearchSubmit=(search)=>{
         console.log(search);
         this.setState({search:search});
 
-    };
-    render() {
-        return (
+    };*/}
+    const toggleMenu=() =>{
+        setToggle(!toggle);
+        
+        console.log(toggle);
+        
+    }
+    const onClose=()=>{
+        setToggle(false);
+       
+    }
+    const onOutsideClose=()=>{
+        setToggle(false);
+        
+    }
+    
+    const classes = cx(
+            'pusher',
+            'bottom',
+            {'dimmed': toggle}
+          );
+    
+    return (
             <Router>
             <div >
-                    <SideBar onSubmit={this.onSearchSubmit}/>
-                    <Route path="/" exact component={Header} />
+                    <Header toggleMenu={toggleMenu}/>
+                    <div className={toggle?"ui page dimmer":""}></div>
+                    <SideBar  toggle={toggle} onClose={onClose} onOutsideClose={onOutsideClose} onRefresh={pathname}/>
+                    <Route path="/" exact component={Main1}  />
                     <Route path="/snake-game-page" exact component={SnakePage} />
-                    <Route path="/" exact render={props => (<Main {...props} search={this.state.search} />)}/>
-                    <Route path="/create" exact component={SideBar1} />
+                    <Route path="/create" exact component={Try} />
                     <Route path="/snake-game-online" exact component={Menu} />
                     <Route path="/categories" exact component={Category} />
                     <Route path="/about" exact component={About} />
@@ -45,20 +67,12 @@ class App extends React.Component {
                     <Route path="/knowledge" exact component={Knowledge} />
                     <Route path="/hot-games" exact component={HotGames} />
                     <Route path="/reaction-games" exact component={ReactionGames} />
-
-                    
-                    
+                    <Route path="/search" exact component={Search} />
                     <Footer/>
 
-                    
-                   
-                    
             </div>
-            </Router>
-
-            
+            </Router>  
         );
-    }
 }
 
 export default App;
