@@ -9,20 +9,25 @@ import OutsideClickHandler from 'react-outside-click-handler';
 
 
 class sideBar extends React.Component{
+
     state={home:false,contact:false,about:false,category1:false,category2:false,category3:false,category4:false,search:false};
     
     onClickhome=()=>{
         this.setState({home:!this.state.home,about:false,contact:false,category1:false,category2:false,category3:false,category4:false,search:false});
-        console.log(this.state.home);
     }
+
     onClickabout=()=>{
         this.setState({about:!this.state.about,home:false,contact:false,category1:false,category2:false,category3:false,category4:false,search:false});
     }
     onClickcontact=()=>{
+
         this.setState({contact:!this.state.contact,home:false,about:false,category1:false,category2:false,category3:false,category4:false,search:false});
     }
     onClicksearch=()=>{
         this.setState({search:!this.state.search,home:false,about:false,category1:false,category2:false,category3:false,category4:false,contact:false});
+
+        
+
     }
     
     
@@ -30,6 +35,7 @@ class sideBar extends React.Component{
         const classes = cn(
             'ui','sidebar', 'overlay','right','vertical','menu', 'animating',
             {'visible' : this.props.toggle}
+
         );
         const onPageLoad=()=>{
             if(this.props.onRefresh ==='/about'){
@@ -47,6 +53,10 @@ class sideBar extends React.Component{
 
         }
         window.addEventListener('load',onPageLoad);
+
+          
+        
+
         
         return(
             <div>
@@ -55,6 +65,7 @@ class sideBar extends React.Component{
                     <div className={classes}>
                         <div className="col-xs-12 col-sm-12 close">
                             <i className="close icon "  onClick={this.props.onClose}></i>
+
                         </div>
                         <div className="col-xs-12 col-sm-12 ">
                             <ul>
@@ -98,10 +109,10 @@ class sideBar extends React.Component{
                 </div>
                 </OutsideClickHandler>
                 <div className="sidebar-div">
-                <div className="ui  secondary pointing inverted vertical icon menu" style={{marginTop:'180px'}}>
+                <div className="ui  secondary pointing inverted vertical icon menu" style={{marginTop:'100px'}}>
                     <Link to="/"><a className={this.state.home?'active item clr':'item clr1'} style={{marginBottom:'20px'}}  onClick={this.onClickhome}>
                         <div class="ui icon " data-tooltip="Home"  data-position="right center">
-                            <i class="home icon"></i>
+                            <i class=" home icon"></i>
                         </div>
                         
                     </a></Link>
@@ -125,8 +136,10 @@ class sideBar extends React.Component{
                     {/*<a >
                         <SubMenu/>
                     </a>*/} 
-                </div>
-                </div>    
+
+                        </div>
+                        </div>
+                       
             </div>
         );
     }

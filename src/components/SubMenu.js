@@ -11,6 +11,7 @@ const  SubMenu=()=>{
 
     const classes=cn('ui', 'secondary' ,'vertical', 'pointing','menu',{'transition':toggle,'visible':toggle});
     const onToggleMenu=()=>{
+
         console.log(toggle)
         setToggle(!toggle);
         console.log(toggle)
@@ -18,7 +19,10 @@ const  SubMenu=()=>{
     const onToggleLeave=()=>{
         setToggle(false);
         console.log(toggle)
-    }
+
+        setToggle(!toggle);
+    };
+    
     const onCategory1=()=>{
         setcategory1(!category1);
         setcategory2(false);
@@ -50,10 +54,17 @@ const  SubMenu=()=>{
     
     return(
         <div >
+
             <div className="ui dropdown item "  onMouseEnter={onToggleMenu} onMouseLeave={onToggleLeave}>
             <i class="info icon" ></i>
                 <div className={classes} >
                         <div className="header brd">Categories</div>
+
+            <div class="ui dropdown item"  onMouseEnter={onToggleMenu} onMouseLeave={onToggleLeave}>
+            <i class="info icon" ></i>
+                <div class={classes} >
+                        <div class="header brd">Categories</div>
+
                             <div class={category1?" active item ":"item"}  onClick={onCategory1} >Memory Walkthrough</div>
                             <a class={category2?"active item ":"item"} onClick={onCategory2} >Knowledge games</a>
                             <a class={category3?"active item":"item"} onClick={onCategory3} >Hot games</a>
@@ -61,8 +72,11 @@ const  SubMenu=()=>{
                 </div>
             </div>
         </div>
+        </div>
+        </div>
+        
 
     );
-}
+    };
 
 export default SubMenu;

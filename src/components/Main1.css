@@ -1,5 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+.main-power-fonts{
+    font-family: 'Press Start 2P';
+    font-size:25px;
+    text-align:left;
+    color :white;   
+}
+.main-start-fonts{
+    font-family: 'Press Start 2P';
+    font-size:35px;
+}
+.main-list-fonts{
+    font-family: 'Press Start 2P';
+    font-size:12px;
+}
+.main-game-title{
+    font-family: 'Press Start 2P';
+    font-size:14px;
+    color:white;
+    margin-top:30px;
+}
+.main-game-description{
+    font-family: 'Ubuntu';
+    font-size:14px;
+    color:#838b8b
+}
+.main-game-genre{
+    font-family: 'Ubuntu';
+    font-size:14px;
+    color:#38e2ee;
+}
+
 .boxstyle{
     background-color: #b1b8b893;
+
     margin:30px;
     border-right: 4px solid #17d8fa;
     padding-bottom: 200px;
@@ -15,13 +50,16 @@
 .size{
     width:100%;
 }
+
 .typewriter{
-    padding: 20px;
+    padding-top: 30px;
+    
 }
 .typewriter-display{
     font-size: xx-large;
     display: inline-block;
     color:white;
+    
 }
 .typewriter-text{
     font-size: xx-large;
@@ -29,31 +67,49 @@
     color:#38e2ee;
 }
 .black{
-    background-image: linear-gradient(45deg, #040405 10%, #0b0d0d 10%, #0b0d0d 50%, #040405 50%, #040405 60%, #0b0d0d 60%, #0b0d0d 100%);
-    background-size: 7.07px 7.07px;
-    
+    background-image: linear-gradient(45deg, #000000 12.50%, #09090a 12.50%, #09090a 50%, #000000 50%, #000000 62.50%, #09090a 62.50%, #09090a 100%);
+    background-size: 5.66px 5.66px;
 }
 .black-padding{
-    padding-bottom: 80px;
+    padding-bottom: 60px;
 }
+
 .mainitem{
     margin-right:5%;
     display: inline-block;
+
+    padding-bottom:5px;
+    
+}
+.mainitem-border{
+    border-bottom: 2px solid #38e2ee;
+
+
     border-bottom: 1px solid #38e2ee;
     padding-bottom:5px;
     
 }
+
 .mainitem a{
     color:white;
 }
 .menu{
     text-align:left;
-    margin:30px;
+
+    margin-left:50px;
+    margin-top:50px;
     padding-bottom: 40px;
 }
 .bg{
-    /*background-image: url('../images/console.jpg');*/
+    background-image: url('../images/23.jpg');
     padding-bottom: 90px;
+    background-size: 100% 100%;
+   
+    
+}
+.bg img{
+    width:100%;
+    height:auto;
 }
 .main-list img{
     border-radius: 10px;
@@ -113,32 +169,50 @@ button.rec-dot{
 button.rec-arrow{
     color:white;
     background-color: rgba(0, 255, 255, 0);
+    border-radius: 0px;
+    width:60px;
+    
 }
-button.rec-arrow :hover{
+
+ .styling-example .rec.rec-arrow:hover{
     background-color: rgb(35, 231, 205);
     color: aqua;
 }
 .main-hidden-left{
-    background-image: linear-gradient(45deg, #040405 10%, #0b0d0d 10%, #0b0d0d 50%, #040405 50%, #040405 60%, #0b0d0d 60%, #0b0d0d 100%);
-    background-size: 7.07px 7.07px;
+    background-image: linear-gradient(45deg, #000000 12.50%, #09090a 12.50%, #09090a 50%, #000000 50%, #000000 62.50%, #09090a 62.50%, #09090a 100%);
+background-size: 5.66px 5.66px;
     z-index:3;
     opacity:0.9;
-    height:200px;
+    height:520px;
     position:absolute;
     left:120px;
-    margin-left:4%;
-    width:300px;
+    margin-left:1.9%;
+    width:265px;
 }
 .main-hidden-right{
-    background-image: linear-gradient(45deg, #040405 10%, #0b0d0d 10%, #0b0d0d 50%, #040405 50%, #040405 60%, #0b0d0d 60%, #0b0d0d 100%);
-    background-size: 7.07px 7.07px;
+    background-image: linear-gradient(45deg, #000000 12.50%, #09090a 12.50%, #09090a 50%, #000000 50%, #000000 62.50%, #09090a 62.50%, #09090a 100%);
+    background-size: 5.66px 5.66px;
     z-index:3;
     opacity:0.9;
-    height:200px;
+    height:520px;
     position:absolute;
     left:120px;
-    margin-left:56%;
-    width:300px;
+    margin-left:60%;
+    width:265px;
+}
+.main-game-img{
+    opacity:1;
+
+}
+.main-game-img:hover{
+    -moz-box-shadow: 0 0 10px rgba(143, 200, 202, 0.788);
+      -webkit-box-shadow: 0 0 10px rgba(143, 200, 202, 0.788);
+      box-shadow: 0 0 10px rgba(87, 197, 201, 0.788);
+      transform: scale(1);
+      background-position: center;
+  background-size: cover;
+  transition: all .5s;
+  opacity:0.7;
 }
 @media only screen and (max-width:1350px){
     
@@ -148,4 +222,32 @@ button.rec-arrow :hover{
     .main-hidden-right{
         display: none;
     }
+}
+@media only screen and (max-width:1000px){
+    
+    .main-power-fonts{
+        font-size:20px;
+    }
+    .main-start-fonts{
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width:1000px){
+    
+    .bg{
+        background-size: 100% 100%;
+    }
+}
+@media only screen and (max-width:800px){
+    .main-game-title{
+        font-size:20px;
+    }
+   .main-game-description{
+       font-size:20px;
+   }
+   .main-game-genre{
+       font-size: 20px;
+   }
+
+   
 }

@@ -52,9 +52,9 @@ import cx from 'classnames';
     
     return (
             <Router>
-            <div >
+            
                     <Header toggleMenu={toggleMenu}/>
-                    <div className={toggle?"ui page dimmer":""}></div>
+                    
                     <SideBar  toggle={toggle} onClose={onClose} onOutsideClose={onOutsideClose} onRefresh={pathname}/>
                     <Route path="/" exact component={Main1}  />
                     <Route path="/snake-game-page" exact component={SnakePage} />
@@ -67,10 +67,10 @@ import cx from 'classnames';
                     <Route path="/knowledge" exact component={Knowledge} />
                     <Route path="/hot-games" exact component={HotGames} />
                     <Route path="/reaction-games" exact component={ReactionGames} />
+
                     <Route path="/search" exact component={Search} />
                     <Footer/>
-
-            </div>
+        
             </Router>  
         );
 }

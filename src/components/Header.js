@@ -46,20 +46,23 @@ const Header=(props)=>{
         <div className={header?"headers":"header-transparent"}>
             <div className="container">
                 <div className="row text-center row-padding">
-                    <div className="col-xs-2 col-sm-2 ">
+
+                    <div className="col-xs-1 col-sm-1  ">
                         <div className="sidebar-icon">
                             <i className="large sidebar icon" onClick={props.toggleMenu}></i>
                         </div>
                     </div>
-                    <div className="col-xs-5 col-sm-5 col-md-5 fonts">
+                    
+                    <div className="col-xs-5 col-sm-6 col-md-6 fonts" >
                         The game changer
                     </div>
-                    <div className="col-xs-5 col-sm-5 col-md-5" style={{textAlign:'right'}}>
+                    <div className="col-xs-6 col-sm-5 col-md-5" style={{textAlign:'right'}}>
                         <div className="headeritem-signin">
-                            <a>Signin</a>
+                            <a className="header-fonts">Signin</a>
                         </div>
                         <div className="headeritem-login" >
-                            <a href="www.google.com">Login</a>
+                            <a href="www.google.com" className="header-fonts">Login</a>
+
                         </div>
                     </div>
                 </div>
@@ -167,6 +170,7 @@ const Header=(props)=>{
             </Modal>
             
         </div>
+        
         
     );
 
