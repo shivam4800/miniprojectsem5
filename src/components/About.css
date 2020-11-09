@@ -1,0 +1,19 @@
+.size-about {
+    width: 100%;
+}
+
+.bg-about {
+    background-color: lightcyan;
+    padding-bottom: 80px;
+}
+
+.boxstyle-about {
+    background-color: #b1b8b893;
+    margin: 30px;
+    border-right: 4px solid #17d8fa;
+    padding-bottom: 200px;
+    color: white;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    position: relative;
+}

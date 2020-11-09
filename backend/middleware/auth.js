@@ -1,12 +1,12 @@
 const jwt = require("jsonwebtoken");
-
-module.exports = function (req, res, next) {
+const User = require('../models/gamers.model');
+module.exports = async function (req, res, next) {
     const token = req.header("token");
     if (!token) return res.status(401).json({ message: "Auth Error" });
-
     try {
         const decoded = jwt.verify(token, "randomString");
         req.user = decoded.user;
+        const user = await User.findById(decoded.user.id);
         next();
     } catch (e) {
         console.error(e);

@@ -1,10 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
+    "\\backend",
+    "\\backend\\middleware",
+    "\\backend\\models",
     "\\src",
-    "\\src\\components"
+    "\\src\\components",
+    "\\src\\components\\context",
+    "\\src\\components\\gamespage",
+    "\\src\\components\\onboard",
+    "\\src\\images"
   ],
-  "SelectedNode": "\\src\\components\\Header.js",
+  "SelectedNode": "\\src\\components\\Main1.js",
   "PreviewInSolutionExplorer": false
 }

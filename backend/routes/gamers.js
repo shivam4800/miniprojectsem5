@@ -34,7 +34,9 @@ router.post(
         const {
             username,
             email,
-            password
+            password,
+            games,
+            snakegame,
         } = req.body;
         try {
             let user = await User.findOne({
@@ -49,7 +51,9 @@ router.post(
             user = new User({
                 username,
                 email,
-                password
+                password,
+                games,
+                snakegame
             });
 
             const salt = await bcrypt.genSalt(10);
@@ -148,9 +152,63 @@ router.get("/me", auth, async (req, res) => {
         // request.user is getting fetched from Middleware after token authentication
         const user = await User.findById(req.user.id);
         res.json(user);
+        
+        console.log(user.snakegame);
     } catch (e) {
         res.send({ message: "Error in Fetching user" });
     }
+});
+
+
+router.route("/addsnakegame").put(function (req, res) {
+    const { username, score } = req.body;
+    User.updateOne(
+        { username: username  },
+        {
+            $push: { snakegame: score }
+        },
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
+});
+
+router.route("/addchess").put(function (req, res) {
+    const { email, score } = req.body;
+    User.updateOne(
+        { email: email },
+        {
+            $push: { chess: score }
+        },
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
+});
+
+router.route("/editprofile").put(function (req, res) {
+    const { username, email, new_user, new_mail} = req.body;
+    //const salt =  bcrypt.genSalt(10);
+    //new_pass = bcrypt.hash(new_pass , salt);
+
+    User.update(
+        { username: username, email: email }, { $set: { username: new_user, email: new_mail } }, 
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
 });
 
 module.exports = router;
