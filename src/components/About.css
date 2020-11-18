@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+.size-about {
+    width: 100%;
+}
+
+.bg-about {
+    background-image: url("../images/console1.jpg");
+    padding-bottom: 80px;
+    background-size: 100% 100%;
+
+}
+
+.boxstyle-about {
+    background-color: #b1b8b893;
+    margin: 30px;
+    border-right: 4px solid #17d8fa;
+    padding-bottom: 200px;
+    color: white;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    position: relative;
+}
+.about-black{
+    background-image: linear-gradient(45deg, #000000 12.50%, #09090a 12.50%, #09090a 50%, #000000 50%, #000000 62.50%, #09090a 62.50%, #09090a 100%);
+    background-size: 5.66px 5.66px;
+}
+.detail-box{
+    background-color: #77727277;
+    margin-top:70px;
+    margin-bottom: 70px;
+    border-radius: 6px;
+    border-left:2px solid #48bdcc ;
+    margin-left:20px;
+    margin-right: 20px;
+    padding-top:50px;
+    padding-bottom: 50px;
+}
+.about-heading{
+    text-align: left;
+    font-family: 'Press Start 2P';
+    padding-left:40px;
+   
+    padding-bottom: 30px;
+    color:white;
+    font-size: 20px;
+    
+}
+.about-name{
+    text-align: left;
+    padding-left:3%;
+    color:white;
+   
+}
+.about-mail{
+    text-align: left;
+    padding-left:3%;
+    color:white;
+   
+}
+.about-name h3{
+    font-family: 'Ubuntu';
+    font-size: 15px;
+}
+.about-mail h3{
+    font-family: 'Ubuntu';
+    font-size: 15px;
+}
+.about-name-box{
+    background-color: #0d0c119d;
+    padding:10px;
+    text-align: left;
+    padding-left:3%;
+    border-radius:5px ;
+    width:60%;
+    border-left: 2px solid #17d8fa;
+}
+.about-name-box h4{
+    color: #727272;
+}
+.about-mail-box h4{
+    color: #727272;
+}
+.about-mail-box{
+    background-color: #0d0c1191;
+    padding:10px;
+    text-align: left;
+    padding-left:3%;
+    border-radius:5px ;
+    width:60%;
+    border-left: 2px solid #17d8fa;
+}
+.about-greet{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-family:'Press Start 2P';
+    color: #797373;
+    font-size:20px;
+}
+@media only screen and (max-width:1000px) {
+    .about-hello{
+        padding-bottom:50px ;
+    }
+    .about-img{
+        padding-bottom:50px ;
+    }
+   
+}
