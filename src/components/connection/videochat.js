@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Peer from "simple-peer";
 import styled from "styled-components";
+import '../onboard/joinroom.css';
 const socket  = require('../connection/socket').socket
 
 
@@ -118,7 +119,7 @@ function VideoChatApp(props) {
     mainView = (
       <div>
         <h1>{props.opponentUserName} is calling you</h1>
-        <button onClick={acceptCall}><h1>Accept</h1></button>
+        <button className="chess-chat" onClick={acceptCall}><h1>Accept</h1></button>
       </div>
     )
   } else if (isCalling) {
@@ -129,9 +130,9 @@ function VideoChatApp(props) {
     )
   } else {
     mainView = (
-      <button onClick = {() => {
+      <button   className="chess-chat" onClick = {() => {
         callPeer(props.opponentSocketId)
-      }} style={{backgroundColor:'#42c1e0' ,borderRadius:'5px',padding:'10px',border:'none',marginLeft:'20px'}}><h1>Chat while you play!</h1></button>
+      }} ><h1 >Chat while you play!</h1></button>
     )
   }
 

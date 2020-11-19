@@ -166,9 +166,10 @@ class Menu extends Component {
 
     render() {
         return (
-            <div>
-                
+            <div className="text-center"  style={{width:'100%'}}>
+                <div className="snake-menu-title">
                 <h1> The Serpent Quest !! </h1>
+                </div>
                
                 
               

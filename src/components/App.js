@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import SideBar from './sideBar';
 import Spinner from './Spinner';
@@ -29,7 +29,9 @@ import TicTacToe from './TicTacToe';
 import Search from './Search';
 import News from './News';
 import Main2 from './Main2';
-import sideBar1 from './sideBar1'
+import sideBar1 from './sideBar1';
+import Arrow from './Arrow';
+import {footisin} from './Footer';
 
 
 
@@ -79,16 +81,15 @@ const App = () => {
         'bottom',
         { 'dimmed': toggle }
     );
-        
-
+   
         return (
             <Router>
                 <div >
 
                     <Header toggleMenu={toggleMenu} />
                     <div className={toggle ? "ui page dimmer" : ""}></div>
-                    <SideBar toggle={toggle} onClose={onClose} onOutsideClose={onOutsideClose} onRefresh={pathname}  isIn={isIn}/>
-                    
+                    <SideBar toggle={toggle} onClose={onClose} onOutsideClose={onOutsideClose} onRefresh={pathname}  isIn={isIn} />
+                    <Arrow/>
                     
                     
                  <Switch>

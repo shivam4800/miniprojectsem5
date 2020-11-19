@@ -25,3 +25,21 @@
     padding:10px;
     border-radius: 5px;
 }
+.chess-chat{
+    margin-left:60px;
+    padding:10px;
+    background-color:#42c1e0;
+    color:white;
+    transition:1s;
+    border:none;
+    border-radius: 5px;
+}
+.chess-chat:hover{
+    background-color: white;
+    transition: 1s;
+    color:#42c1e0;
+    border: 1px solid #42c1e0;
+    border-radius: 5px;
+    padding:10px;
+    margin-left:60px;
+}

@@ -218,13 +218,13 @@ window.addEventListener('load', onPageLogin);
 
     return(
 
-        
+        <div>
         <div className={header ? "headers" : "header-transparent"}>
             <div className="container">
                 <div className="row text-center row-padding">
                     <div className="col-xs-1 col-sm-1 ">
                         <div className="sidebar-icon">
-                            <i className="large sidebar icon" onClick={props.toggleMenu}></i>
+                            <i className=" sidebar icon" onClick={props.toggleMenu}></i>
                         </div>
                     </div>
                     <div className="col-xs-5 col-sm-6 col-md-6 fonts">
@@ -338,6 +338,7 @@ window.addEventListener('load', onPageLogin);
             
         </div>
         
+    </div>
     );
 
 };

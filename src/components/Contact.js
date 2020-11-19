@@ -8,8 +8,8 @@ const Contact = () => {
             <div className="bg-contact">
                 <div className="container" >
                     <div className="row text-center">
-                        <div class="col-12 col-sm-8 col-md-8 col-lg-8 boxstyle-contact">
-                            <h1 style={{ textAlign: 'left' }}>The Power of gaming </h1>
+                        <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 boxstyle-contact">
+                            <h1 style={{ textAlign: 'left' }}>Contacts</h1>
                         </div>
                     </div>
                 </div>

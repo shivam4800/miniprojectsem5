@@ -111,8 +111,8 @@ const About = () => {
             <div className="bg-about">
                 <div className="container" >
                     <div className="row text-center">
-                        <div class="col-12 col-sm-8 col-md-8 col-lg-8 boxstyle-about">
-                            <h1 style={{ textAlign: 'left' }}>The Power of gaming </h1>
+                        <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 boxstyle-about">
+                            <h1 style={{ textAlign: 'left' }}>About </h1>
                         </div>
                     </div>
                 </div>
@@ -157,54 +157,16 @@ const About = () => {
 
                 </div>
             </div>
-            <div>
-                dfgh
+            <div style={{paddingBottom:'100px'}}>
+                <h1>dfg</h1>
+                
             </div>
             </div>:
-            <div>
-            <div className="container" >
-                <div className="row text-center about-greet"  >
-                    <div className="col-12 col-sm-6 col-md-6 col-lg-6 about-hello"  >
-                        HELLO, {edit_name}
-                    </div>
-                    <div className="col-12 col-sm-6 col-md-6 col-lg-6 about-img" >
-                        <img src={console}/>
-                    </div>
+            <div className="container" style={{paddingBottom:'70px',paddingTop:'50px'}}>
+                <div className="text-center about-please">
+                <h1 >Please Log in to see your details !</h1>
                 </div>
-            </div>
-            <div className="about-black">
-                <div className="container ">
-                    <div className="row text-center detail-box" >
-                        <div className="about-heading">
-                            <p>MY DETAILS</p>
-                        </div>
-                        <div>
-                                <div className="col-12 col-sm-12 col-md-12 col-lg-12" style={{paddingBottom:'40px'}} >
-                                    <div className="about-name"  style={{paddingBottom:'10px'}} >
-                                        <h3>Name :</h3>
-                                    </div>
-                                    <div className="about-name-box">
-                                        <h4>{edit_name}</h4>
-                                    </div>
-                                </div>
-                                <div className="col-12 col-sm-12 col-md-12 col-lg-12" style={{paddingBottom:'40px'}} >
-                                    <div className="about-mail"  style={{paddingBottom:'10px'}} >
-                                        <h3>Email :</h3>
-                                    </div>
-                                    <div className="about-mail-box">
-                                        <h4>{edit_mail}</h4>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div>
-                dfgh
-            </div>
-            </div>
-            }
+            </div>}
             
         
         </div>

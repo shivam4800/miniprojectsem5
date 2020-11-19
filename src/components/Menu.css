@@ -27,3 +27,6 @@
     border: 1px solid aquamarine;
     z-index: 1;
 }
+.snake-menu-title{
+    padding-top: 120px;
+}

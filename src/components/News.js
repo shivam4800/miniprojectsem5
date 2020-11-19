@@ -58,7 +58,7 @@ const News = () => {
                 <img src={bg3} width="100%" height="700px"/>       
             </div>
             
-            <div className="text-center">
+            <div className="text-center search-padding">
                 <br />
                 <br />
                 <h1 className="search-display search-find-fonts" >Find any  &nbsp;</h1>
@@ -68,12 +68,12 @@ const News = () => {
                                 wrapper="p"
                 />
             </div>
-            <div className="text-center">
+            <div className="text-center " style={{paddingBottom:'40px'}}>
            
             {searchForm()}
             </div>
             <div className="text-center black1 black-news">
-            <div  className="container ">
+            <div  className="container " >
                 {showLoading()}
                 {showNews}
             </div>
