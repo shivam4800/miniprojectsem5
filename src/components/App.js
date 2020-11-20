@@ -39,7 +39,8 @@ import BrickPage from './BrickPage';
 import HangPage from './HangPage';
 import TetrisPage from './TetrisPage';
 import A2048Page from './A2048page';
-
+import Arrow from './Arrow';
+import { footisin } from './Footer';
 
 const App = () => {
 
@@ -96,7 +97,8 @@ const App = () => {
                     <Header toggleMenu={toggleMenu} />
                     <div className={toggle ? "ui page dimmer" : ""}></div>
                     <SideBar toggle={toggle} onClose={onClose} onOutsideClose={onOutsideClose} onRefresh={pathname} />
-                    
+                    <Arrow />
+
                     
                     
                  <Switch>

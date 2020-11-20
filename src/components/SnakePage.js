@@ -56,22 +56,25 @@ const SnakePage = () => {
     
      
         return (
-            <div className='snake'>
-                <br/>
-
             <div className='snake' >
-                <img src="https://cdn.pixabay.com/photo/2018/06/07/16/49/vr-3460451_960_720.jpg" width="120%"/>
 
-                <h1>The Serpent Quest </h1>
+                <div className="text-center snake-title">
+                    <h1>The Serpent Quest </h1>
+                </div>
+
                 <br />
                 <br />
-                <br/> 
-                    <Link to='/snake-game-online' className='navlink' > <h2> Click here to play!</h2> </Link>
-                    <br />
-                    <br />
-                    <br />
-                    <div onClick={onOpenLogin} className="navlink" >
-                        <i className="snake icon"></i>
+                <br /> 
+                
+
+                    <div className="text-center">
+                        <Link to='/snake-game-online' className='navlink' > <button className="snake-play"> Play</button> </Link>
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                    <div onClick={onOpenLogin} className=" text-center snake-track" >
+
                         <h1> <a >Track your Points! </a> </h1>
                     </div>
 
@@ -124,7 +127,7 @@ const SnakePage = () => {
                     </div>
                  </Modal>
                 </div>
-            </div>
+           
         );
     
 }

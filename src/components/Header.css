@@ -91,6 +91,7 @@
     transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .6s;
 }
 
+
 .row-padding {
     margin-top: 20px;
 }
@@ -110,6 +111,11 @@
 @media only screen and (max-width:1000px) {
     .sidebar-icon {
         display: block;
+        color: white
+    }
+
+    .headers .sidebar-icon i {
+        color: black
     }
 }
 
@@ -128,6 +134,10 @@
 
         .header-transparent .icon-social i {
             color: black;
+        }
+
+        .header-transparent .sidebar-icon i {
+            color: black
         }
 }
 

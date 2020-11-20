@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
 .size-about {
     width: 100%;
@@ -11,15 +12,20 @@
 }
 
 .boxstyle-about {
-    background-color: #b1b8b893;
+    background-color: #565e5e93;
     margin: 30px;
     border-right: 4px solid #17d8fa;
-    padding-bottom: 200px;
+    padding-bottom: 50px;
     color: white;
     margin-top: 200px;
-    margin-bottom: 100px;
+    margin-bottom: 200px;
     position: relative;
 }
+
+    .boxstyle-about:hover {
+        background-color: #45ced391;
+        border-right: 4px solid white;
+    }
 
 .about-black {
     background-image: linear-gradient(45deg, #000000 12.50%, #09090a 12.50%, #09090a 50%, #000000 50%, #000000 62.50%, #09090a 62.50%, #09090a 100%);
@@ -104,6 +110,19 @@
     color: #797373;
     font-size: 20px;
 }
+
+.about-please {
+    background-image: linear-gradient(45deg, #000000 12.50%, #09090a 12.50%, #09090a 50%, #000000 50%, #000000 62.50%, #09090a 62.50%, #09090a 100%);
+    background-size: 5.66px 5.66px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+    .about-please h1 {
+        font-family: 'Press Start 2P';
+        font-size: 11px;
+        color: white;
+    }
 
 @media only screen and (max-width:1000px) {
     .about-hello {

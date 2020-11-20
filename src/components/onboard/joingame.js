@@ -40,7 +40,7 @@ const JoinGame = (props) => {
         <br />
         <br />
         <h1 style={{ textAlign: "center" }}>Welcome to Chess with Friend!</h1>
-        
+
     </div>
 }
 

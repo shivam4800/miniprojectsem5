@@ -12,15 +12,20 @@
 }
 
 .boxstyle-contact {
-    background-color: #b1b8b893;
+    background-color: #565e5e93;
     margin: 30px;
     border-right: 4px solid #17d8fa;
-    padding-bottom: 200px;
+    padding-bottom: 50px;
     color: white;
     margin-top: 200px;
-    margin-bottom: 100px;
+    margin-bottom: 200px;
     position: relative;
 }
+
+    .boxstyle-contact:hover {
+        background-color: #45ced391;
+        border-right: 4px solid white;
+    }
 
 .contact-fonts {
     font-family: 'Press Start 2P';
@@ -104,6 +109,6 @@
 @media only screen and (max-width:1000px) {
     .contact-margin {
         margin-bottom: 40px;
-        
+        ;
     }
 }

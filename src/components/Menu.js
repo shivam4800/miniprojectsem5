@@ -142,7 +142,7 @@ class Menu extends Component {
                 console.log(error);
                 alert('Invalid action');
             });
-                }
+    }
     onGameOver() {
 
         console.log(exname);
@@ -166,19 +166,20 @@ class Menu extends Component {
 
     render() {
         return (
-            <div>
-                
-                <h1> The Serpent Quest !! </h1>
-               
-                
-              
-            <div className="game-area">
-                <Snake snakeDots={this.state.snakeDots} />
-                <Food dot={this.state.food} />
+            <div className="text-center" style={{ width: '100%' }}>
+                <div className="snake-menu-title">
+                    <h1> The Serpent Quest !! </h1>
+                </div>
+
+
+
+                <div className="game-area">
+                    <Snake snakeDots={this.state.snakeDots} />
+                    <Food dot={this.state.food} />
+                </div>
+
+
             </div>
-            
-                
-           </div>
         );
     }
 }

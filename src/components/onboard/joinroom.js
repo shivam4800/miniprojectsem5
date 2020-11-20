@@ -1,6 +1,7 @@
 import React from 'react'
 import JoinGame from './joingame'
 import ChessGame from '../chess/ui/chessgame'
+import joinroom from './joinroom.css';
 
 
 /**

@@ -2,7 +2,8 @@ import React from 'react'
 import { Redirect } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { ColorContext } from '../context/color-context';
-const socket  = require('../connection/socket').socket
+import joinroom from './joinroom.css';
+const socket = require('../connection/socket').socket
 
 /**
  * Onboard is where we create the game room.
@@ -19,7 +20,7 @@ class CreateNewGame extends React.Component {
         super(props);
         this.textArea = React.createRef();
     }
-    
+
     send = () => {
         /**
          * This method should create a new room in the '/' namespace
@@ -40,7 +41,7 @@ class CreateNewGame extends React.Component {
     typingUserName = () => {
         // grab the input text from the field from the DOM 
         const typedText = this.textArea.current.value
-        
+
         // set the state with that text
         this.setState({
             inputText: typedText
@@ -52,54 +53,55 @@ class CreateNewGame extends React.Component {
 
         return (<React.Fragment>
             {
-                this.state.didGetUserName ? 
+                this.state.didGetUserName ?
 
-                <Redirect to = {"/game/" + this.state.gameId}><button className="btn btn-success" style = {{marginLeft: String((window.innerWidth / 2) - 60) + "px", width: "120px"}}>Start Game</button></Redirect>
+                    <Redirect to={"/game/" + this.state.gameId}><button className="btn btn-success" style={{ marginLeft: String((window.innerWidth / 2) - 60) + "px", width: "120px" }}>Start Game</button></Redirect>
 
-            :
-                    <div>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                    <h1 >Your Username:</h1>
+                    :
+                    <div className="container">
+                        <div className="text-center">
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <h1 >Your Username:</h1>
 
-                    <input style={{marginLeft: String((window.innerWidth / 2) - 120) + "px", width: "240px", marginTop: "62px"}} 
-                           ref = {this.textArea}
-                           onInput = {this.typingUserName}></input>
-                           
-                    <button className="btn btn-primary" 
-                        style = {{marginLeft: String((window.innerWidth / 2) - 60) + "px", width: "120px", marginTop: "62px"}} 
-                        disabled = {!(this.state.inputText.length > 0)} 
-                        onClick = {() => {
-                            // When the 'Submit' button gets pressed from the username screen,
-                            // We should send a request to the server to create a new room with
-                            // the uuid we generate here.
-                            this.props.didRedirect() 
-                            this.props.setUserName(this.state.inputText) 
-                            this.setState({
-                                didGetUserName: true
-                            })
-                            this.send()
-                            }}>Submit</button>
+                            <input className="chess-input"
+                                ref={this.textArea}
+                                onInput={this.typingUserName}></input>
+                            <div>
+                                <button className="chess-submit"
 
-                        <br />
-                        <br />
-                        <br />
+                                    disabled={!(this.state.inputText.length > 0)}
+                                    onClick={() => {
+                                        // When the 'Submit' button gets pressed from the username screen,
+                                        // We should send a request to the server to create a new room with
+                                        // the uuid we generate here.
+                                        this.props.didRedirect()
+                                        this.props.setUserName(this.state.inputText)
+                                        this.setState({
+                                            didGetUserName: true
+                                        })
+                                        this.send()
+                                    }}>Submit</button>
+                            </div>
+                        </div>
 
-                </div>
+
+
+                    </div>
             }
-            </React.Fragment>)
+        </React.Fragment>)
     }
 }
 
 const Onboard = (props) => {
     const color = React.useContext(ColorContext)
 
-    return <CreateNewGame didRedirect = {color.playerDidRedirect} setUserName = {props.setUserName}/>
+    return <CreateNewGame didRedirect={color.playerDidRedirect} setUserName={props.setUserName} />
 }
 
 

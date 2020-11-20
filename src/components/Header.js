@@ -193,7 +193,7 @@ const Header = (props) => {
                         
                         user();
                         window.location.reload(false);
-                        
+                        user();
                     }
 
                     else {
@@ -241,11 +241,13 @@ const Header = (props) => {
                     console.log(response.data.token);
                     redirectToHome();
                     localStorage.setItem("inside", "tru");
+                    
                     localStorage.setItem("emailid", response.data.email);
                     localStorage.setItem('inside_bool', true);
                     //renderLogout();
                     user();
                     window.location.reload(false);
+                    user();
                 }
                 else if (response.status === 204) {
                     alert("Email and password do not match");

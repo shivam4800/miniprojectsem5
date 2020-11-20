@@ -1,98 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Contact.css';
-import axios from 'axios';
 
 const Contact = () => {
-
-    const [name, setName] = useState('');
-
-    const [email, setEmail] = useState('');
-
-    const [number, setNumber] = useState('');
-
-    const [desc, setDesc] = useState('');
-
-    const onNameChange = (e) => {
-        console.log(e.target.value);
-        setName(e.target.value);
-
-    };
-
-    const onEmailChange = (e) => {
-        console.log(e.target.value);
-        setEmail(e.target.value);
-
-    };
-
-    const onNumberChange = (e) => {
-        console.log(e.target.value);
-        setNumber(e.target.value);
-
-    };
-
-    const onDescChange = (e) => {
-        console.log(e.target.value);
-        setDesc(e.target.value);
-
-    };
-
-    const onNameSub = (e) => {
-        
-        setName('');
-
-    };
-
-    const onEmailSub = (e) => {
-        //console.log(e.target.value);
-        setEmail('');
-
-    };
-
-    const onNumberSub = (e) => {
-        //console.log(e.target.value);
-        setNumber('');
-
-    };
-
-    const onDescSub = (e) => {
-        //console.log(e.target.value);
-        setDesc('');
-
-    };
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-
-        const feedback = {
-            name : name,
-            email : email,
-            number : number,
-            desc : desc
-        }
-
-        console.log(feedback);
-        axios.post('http://localhost:5000/feedbacks/addfeedback', feedback)
-            .then(res => {
-                console.log(res.data)
-                alert('Feedback Submitted!');
-                onNameSub();
-                onEmailSub();
-                onNumberSub();
-                onDescSub();
-                
-
-            });
-
-
-        
-    }
     return (
         <div className="size-contact">
             <div className="bg-contact">
                 <div className="container" >
                     <div className="row text-center">
-                        <div class="col-12 col-sm-8 col-md-8 col-lg-8 boxstyle-contact">
-                            <h1 style={{ textAlign: 'left' }}>The Power of gaming </h1>
+                        <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 boxstyle-contact">
+                            <h1 style={{ textAlign: 'left' }}>Contacts</h1>
                         </div>
                     </div>
                 </div>
@@ -150,19 +66,19 @@ const Contact = () => {
                         <div>
                             <form>
                                 <div className="col-12 col-sm-6 col-md-5 col-lg-6" >
-                                    <input placeholder="Name" className="contact-form-input" onChange={onNameChange} value={name} />
+                                    <input placeholder="Name" className="contact-form-input" />
                                 </div>
                                 <div className="col-12 col-sm-6 col-md-6 col-lg-6" >
-                                    <input placeholder="Email" className="contact-form-input" onChange={onEmailChange} value={email}/>
+                                    <input placeholder="Email" className="contact-form-input" />
                                 </div>
                                 <div className="col-12 col-sm-12 col-md-12 col-lg-12" >
-                                    <input placeholder="Contact No" className="contact-form-input" onChange={onNumberChange} value={number} />
+                                    <input placeholder="Contact No" className="contact-form-input" />
                                 </div>
                                 <div className="col-12 col-sm-12 col-md-12 col-lg-12" >
-                                    <input placeholder="Feedback" className="contact-form-input" id="contact-form-feedback" onChange={onDescChange} value={desc} />
+                                    <input placeholder="Feedback" className="contact-form-input" id="contact-form-feedback" />
                                 </div>
                                 <div>
-                                    <button className="contact-form-btn" onClick={onSubmit}  > Submit</button>
+                                    <button className="contact-form-btn" >Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -185,4 +101,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
