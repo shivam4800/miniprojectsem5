@@ -1,15 +1,24 @@
 import React,{useState,useEffect} from 'react';
 import './Header.css';
-import Modal from 'react-modal';
+//import Modal from 'react-modal';
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
+//import Logo from '../images/logo2.png';
 import Logo from '../images/logo2.png';
+import 'react-responsive-modal/styles.css';
+import bgcon from '../images/gameconsole1.png';
+import { Modal } from 'react-responsive-modal';
+import { Url } from 'devextreme-react/chart';
 
-
-export var isIn = false;
-export var exname = "Guest";
+export var isIn = localStorage.getItem('inside_bool');
+export var exname = localStorage.getItem('uname')
 export var snakeArr = [];
-export var exmail = "Nothing yet, please login!";
+export var ticArr = [];
+export var exmail = localStorage.getItem('umail');
+export var uid = localStorage.getItem('u_id')
+export var sessmail = localStorage.getItem("emailid");
+export var sessname = 'Guest';
+export var sessin = localStorage.getItem('inside');
 const Header = (props) => {
     let history = useHistory();
     
@@ -18,14 +27,25 @@ const Header = (props) => {
             .then(function (response) {
                 if (response.status === 200) {
                     console.log("response", response);
-                    exname = response.data.username;
-                    console.log("name is: ", exname);
-                    exmail = response.data.email;
+                    var ex_name = response.data.username;
+                    localStorage.setItem('uname', ex_name);
+                    
+                    var u_id = response.data._id;
+                    localStorage.setItem('u_id', u_id);
+                    console.log("id is ", u_id); 
+                    console.log("name is: ", ex_name);
+                    var ex_mail = response.data.email;
+                    localStorage.setItem('umail', ex_mail);
                     snakeArr = response.data.snakegame;
+                    ticArr = response.data.tictactoe;
                     console.log("Array: ", snakeArr);
                     console.log('me');
                     renderLogout();
                     isIn = true;
+                    onPageLogin();
+                    
+                    
+
                     console.log('isIn is', isIn);
                 }
             })
@@ -33,6 +53,17 @@ const Header = (props) => {
                 redirectToLogin()
             });
     }
+
+    const onPageLogin = () => {
+        if (window.location.pathname === '/youarein') {
+            console.log("sdgfrfgfg")
+            setIsin(true);
+            isIn = true;
+
+
+
+        }
+    } 
     function redirectToLogin() {
         history.push('/');
     }
@@ -57,17 +88,24 @@ const Header = (props) => {
         }
     }
     function handleLogout() {
-        localStorage.removeItem('login_access_token')
+        localStorage.removeItem('login_access_token');
+        localStorage.removeItem('inside');
+        localStorage.removeItem('inside_bool');
+        localStorage.removeItem('uname');
+        localStorage.removeItem('umail');
+        localStorage.removeItem('u_id');
+        setIsin(false);
         isIn = false;
         console.log(isIn);
-        history.push('/')
+        history.push('/');
+        window.location.reload(false);
     }
     const [header, setHeader] = useState(false);
     const [header2, setHeader2] = useState(false);
     const [sign,setSign]=useState(false);
     const [login,setLogin]=useState(false);
     const [name,setName]=useState('');
-    
+    const [isin, setIsin] = useState(false);
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
 
@@ -103,7 +141,16 @@ const Header = (props) => {
 
     };
 
-   
+    const bg = {
+
+        modal: {
+            background: '#121212'
+        },
+        closeButton: {
+            color: '#383838'
+        }
+    };
+
 
     const onPasswordChange = (e) => {
         console.log(e.target.value);
@@ -137,10 +184,15 @@ const Header = (props) => {
                         
                         alert('Sucess!');
                         localStorage.setItem('login_access_token', response.data.token);
+                        console.log(response.data.token);
+                        //localStorage.setItem('inside', 'tru');
+
+                        localStorage.setItem('inside_bool', true);
                         onCloseSign();
                         redirectToHome();
                         
                         user();
+                        window.location.reload(false);
                         
                     }
 
@@ -186,9 +238,14 @@ const Header = (props) => {
                     alert('Logged in successfully!');
                     onCloseLogin();
                     localStorage.setItem('login_access_token', response.data.token);
+                    console.log(response.data.token);
                     redirectToHome();
-                    renderLogout();
+                    localStorage.setItem("inside", "tru");
+                    localStorage.setItem("emailid", response.data.email);
+                    localStorage.setItem('inside_bool', true);
+                    //renderLogout();
                     user();
+                    window.location.reload(false);
                 }
                 else if (response.status === 204) {
                     alert("Email and password do not match");
@@ -202,60 +259,68 @@ const Header = (props) => {
                 alert('Invalid email or password!');
             });
     }
+    /*localStorage.setItem("inside", "tru");
+    localStorage.setItem("emailid", exmail);
+    localStorage.setItem("uname", exname);
+    sessmail = localStorage.getItem("emailid");
+    sessname = localStorage.getItem("uname");
+    sessin = localStorage.getItem("inside");
+    console.log("Sessions: ", sessmail, " ", sessname, " ", sessin);*/
+    //var inside_var = localStorage.getItem('inside_bool');
+    return (
 
-    return(
 
-        
         <div className={header ? "headers" : "header-transparent"}>
             <div className="container">
                 <div className="row text-center row-padding">
-                    <div className="col-xs-2 col-sm-2 ">
+                    <div className="col-xs-1 col-sm-1 ">
                         <div className="sidebar-icon">
                             <i className="large sidebar icon" onClick={props.toggleMenu}></i>
                         </div>
                     </div>
-                    <div className="col-xs-5 col-sm-5 col-md-5 fonts">
+                    <div className="col-xs-5 col-sm-6 col-md-6 fonts">
                         The game changer
                     </div>
-                    
-                    <div className="col-xs-5 col-sm-5 col-md-5" style={{ textAlign: 'right' }}>
-                        {isIn ?
-                            <div>
-                                <div className="headeritem" id="signup">
-                                    <a>Welcome!</a>
-                                </div>
-                                <div className="headeritem" id="login" onClick={handleLogout}>
-                                    <a>Logout</a>
-                                </div>
+
+
+                    {isIn ?
+                        <div className="col-xs-6 col-sm-5 col-md-5" style={{ textAlign: 'right' }}>
+                            <div className="headeritem-signin">
+                                <a className="header-fonts">Welcome</a>
                             </div>
-                            :
-                            <div>
-                                <div className="headeritem" id="signup" onClick={onOpenSign} >
-                                    <a>Signin</a>
-                                </div>
-                                <div className="headeritem" id="login" onClick={onOpenLogin}>
-                                    <a>Login</a>
-                                </div>
+                            <div className="headeritem-login" onClick={handleLogout} style={{ width: '80px' }}>
+                                <a className="header-fonts" >Logout</a>
+
                             </div>
-                                                    }
-                    </div>
-                   
+                        </div>
+                        :
+                        <div className="col-xs-6 col-sm-5 col-md-5" style={{ textAlign: 'right' }}>
+                            <div className="headeritem-signin" onClick={onOpenSign}>
+                                <a className="header-fonts" >Signin</a>
+                            </div>
+                            <div className="headeritem-login" onClick={onOpenLogin}>
+                                <a className="header-fonts" >Login</a>
+
+                            </div>
+                        </div>
+                    }
+
                 </div>
                 <div className="row text-center">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 icon-social" >
-                        <div class="ui icon align-social" data-tooltip="Add users" data-inverted="">
+                        <div class="ui icon align-social blue-tooltip" data-toggle="tooltip" data-placement="top" title="World" >
                             <i className="world icon " ></i>
                         </div>
-                        <div class="ui icon align-social" data-tooltip="Facebook" data-inverted="">
+                        <div class="ui icon align-social blue-tooltip" data-toggle="tooltip" data-placement="top" title="Facebook" >
                             <i className=" facebook icon " ></i>
                         </div>
-                        <div class="ui icon align-social" data-tooltip="Twitter" data-inverted="">
+                        <div class="ui icon align-social blue-tooltip" data-toggle="tooltip" data-placement="top" title="Twitter" >
                             <i className="twitter icon " ></i>
                         </div>
-                        <div class="ui icon align-social" data-tooltip="Instagram" data-inverted="">
+                        <div class="ui icon align-social blue-tooltip" data-toggle="tooltip" data-placement="top" title="Instagram" >
                             <i className="instagram icon " ></i>
                         </div>
-                        <div class="ui icon align-social " data-tooltip="Linkedin" data-inverted="">
+                        <div class="ui icon align-social blue-tooltip" data-toggle="tooltip" data-placement="top" title="Linkedin" >
                             <i className="linkedin icon " ></i>
                         </div>
 
@@ -263,76 +328,67 @@ const Header = (props) => {
                 </div>
             </div>
 
-            
-            <Modal isOpen={sign} onRequestClose={onCloseSign} style={{ overlay: { zIndex: '99', backgroundColor: '#b3b3b49f' }, content: { marginLeft: '35%', width: '30%', height: '75%' } }} >
-                <center><h1>Sign up</h1></center><br />
-                <button class="ui google plus button" style={{ marginLeft: '35%' }}>
-                    <i class="google  icon"></i>
-                    Google
-            </button><br /><br />
-                <div class="ui horizontal divider">
-                    Or
-            </div>
-                <div className="ui form">
-                    <div className="inline fields">
-                        <div className="nine wide field">
-                            <label>Name</label>
-                            <input type="text" placeholder="First Name" style={{ marginLeft: '22px' }} onChange={onNameChange} value={name} />
-                        </div>
-                        
+            <Modal open={sign} onClose={onCloseSign} styles={bg}>
+                <div className="modal-body">
+                    <div className="header-modal-signin-1" >
+                        <img src={bgcon} width="50%" height="100%" />
                     </div>
-                    <div className="inline fields">
-                        <div className="nine wide field">
-                            <label>Email</label>
-                            <input type="text" placeholder="Email" style={{ marginLeft: '23px' }} onChange={onEmailChange} value={email} />
-                        </div>
-                    </div>
-                    <div className="inline fields">
-                        <div className="nine wide field">
-                            <label>Password</label>
-                            <input type="text" placeholder="Password" onChange={onPasswordChange} value={password} />
-                        </div>
-                    </div><br />
-                    <div className="ui submit button" style={{ width: '30%', marginLeft: '35%', backgroundColor: ' darkcyan' }} onClick={handleSignupSubmit} >Sign up</div>
-                </div>
+                    <div className="header-modal-signin-2">
+                        <h3>Signup</h3>
 
+                        <form className="contact-form form-validate3" novalidate="novalidate">
+                            <div className="form-group">
+                                <input className="form-control header-input " type="text" name="name" id="name" placeholder="First Name" required="" autocomplete="off" aria-required="true" onChange={onNameChange} value={name} />
+                            </div>
+                            <div className="form-group">
+                                <input className="form-control header-input" type="email" name="email" placeholder="E-mail" required="" autocomplete="off" aria-required="true" onChange={onEmailChange} value={email} />
+                            </div>
+                            <div className="form-group">
+                                <input type="password" name="pass" className="form-control header-input" placeholder="Password" required="" autocomplete="off" aria-required="true" onChange={onPasswordChange} value={password} />
+                            </div>
+                            <div className="form-group">
+                                <input type="password" name="pass" className="form-control header-input" placeholder="  Re-Password" required="" autocomplete="off" aria-required="true" />
+                            </div>
+                            <input className="btn btn-md btn-info btn-center" id="sign_up" type="button" value="Sign Up" onClick={handleSignupSubmit} />
+
+                        </form>
+                    </div>
+                </div>
+            </Modal>
+            <Modal open={login} onClose={onCloseLogin} styles={bg}>
+                <div className="modal-body">
+                    <div className="header-modal-signin-1" >
+                        <img src={bgcon} width="50%" height="100%" />
+                    </div>
+                    <div className="header-modal-signin-2">
+                        <h3>Login</h3>
+
+                        <form className="contact-form form-validate3" novalidate="novalidate">
+
+                            <div className="form-group">
+                                <input className="form-control header-input" type="email" name="email" placeholder="E-mail" required="" autocomplete="off" aria-required="true" onChange={onEmailChange} value={email} />
+                            </div>
+                            <div className="form-group">
+                                <input type="password" name="pass" className="form-control header-input" placeholder="Password" required="" autocomplete="off" aria-required="true" onChange={onPasswordChange} value={password} />
+                            </div>
+
+                            <input className="btn btn-md btn-info btn-center" id="sign_up" type="button" value="Login" onClick={handleLoginSubmitClick} />
+                            <div class="ui horizontal divider">
+                                Or
+                            </div>
+                            <div>
+
+                                <h3>Login with Google</h3>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
             </Modal>
 
-            <Modal isOpen={login} onRequestClose={onCloseLogin} style={{
-                overlay: { zIndex: '99', backgroundColor: '#b3b3b49f' },
-                content: { marginLeft: '35%', width: '30%', height: '75%' }
-            }} >
-                <center><h1>Login</h1></center><br />
-                <button class="ui google plus button" style={{ marginLeft: '35%' }}>
-                    <i class="google  icon"></i>
-                    Google
-            </button><br /><br />
-                <div class="ui horizontal divider">
-                    Or
-            </div>
-                <div className="ui form">
-        
-                    <div className="inline fields">
-                        <div className="nine wide field">
-                            <label>Email</label>
-                            <input type="text" placeholder="Email" style={{ marginLeft: '23px' }} onChange={onEmailChange} value={email} />
-                        </div>
-                    </div>
-                    <div className="inline fields">
-                        <div className="nine wide field">
-                            <label>Password</label>
-                            <input type="text" placeholder="Password" onChange={onPasswordChange} value={password} />
-                        </div>
-                    </div><br />
-                    <div className="ui submit button" style={{ width: '30%', marginLeft: '35%', backgroundColor: ' darkcyan' }} onClick={handleLoginSubmitClick}>Login</div>
 
-
-                </div>
-
-            </Modal>
-            
         </div>
-        
+
     );
 
 };

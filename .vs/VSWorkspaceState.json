@@ -3,14 +3,14 @@
     "",
     "\\backend",
     "\\backend\\middleware",
-    "\\backend\\models",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\context",
-    "\\src\\components\\gamespage",
-    "\\src\\components\\onboard",
+    "\\src\\components\\chess",
+    "\\src\\components\\chess\\assets",
+    "\\src\\components\\chess\\model",
+    "\\src\\components\\connection",
     "\\src\\images"
   ],
-  "SelectedNode": "\\src\\components\\Main1.js",
+  "SelectedNode": "\\src\\components\\sideBar.js",
   "PreviewInSolutionExplorer": false
 }

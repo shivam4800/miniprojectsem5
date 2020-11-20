@@ -178,11 +178,11 @@ router.route("/addsnakegame").put(function (req, res) {
 });
 
 router.route("/addchess").put(function (req, res) {
-    const { email, score } = req.body;
+    const { username, score } = req.body;
     User.updateOne(
-        { email: email },
+        { username: username },
         {
-            $push: { chess: score }
+            $push: { chess : score }
         },
         function (err, result) {
             if (err) {
@@ -194,6 +194,90 @@ router.route("/addchess").put(function (req, res) {
     );
 });
 
+router.route("/addtic").put(function (req, res) {
+    const { email, score } = req.body;
+    User.updateOne(
+        { email: email },
+        {
+            $push: { tictactoe: score }
+        },
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
+});
+
+router.route("/addbrick").put(function (req, res) {
+    const { email, score } = req.body;
+    User.updateOne(
+        { email: email },
+        {
+            $push: { brickbreak : score }
+        },
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
+});
+
+router.route("/addhangman").put(function (req, res) {
+    const { email, score } = req.body;
+    User.updateOne(
+        { email: email },
+        {
+            $push: { hangman : score }
+        },
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
+});
+
+router.route("/add2048").put(function (req, res) {
+    const { email, score } = req.body;
+    User.updateOne(
+        { email: email },
+        {
+            $push: { A2048 : score }
+        },
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
+});
+
+router.route("/addtetris").put(function (req, res) {
+    const { email, score } = req.body;
+    User.updateOne(
+        { email: email },
+        {
+            $push: { tetris : score }
+        },
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
+});
 router.route("/editprofile").put(function (req, res) {
     const { username, email, new_user, new_mail} = req.body;
     //const salt =  bcrypt.genSalt(10);
@@ -209,6 +293,37 @@ router.route("/editprofile").put(function (req, res) {
             }
         }
     );
+});
+
+/*router.route("/fetchgraphs").get(function (req, res) {
+    User.find( req.body , function (err, result) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+            console.log(result);
+            
+        }
+    });
+});
+
+router.get("/fetch2", async (req, res) => {
+    try {
+        // request.user is getting fetched from Middleware after token authentication
+        const user = await User.find(req.body);
+        res.json(user);
+        console.log(user);
+
+
+    } catch (e) {
+        res.send({ message: "Error in Fetching user" });
+    }
+});*/
+
+router.route('/fetch3/:id').get((req, res) => {
+    User.findById(req.params.id)
+        .then(gamers => res.json(gamers))
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;

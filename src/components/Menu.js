@@ -148,7 +148,7 @@ class Menu extends Component {
         console.log(exname);
         console.log(isIn);
         console.log(snakeArr);
-        if (isIn == true) {
+        if (isIn) {
             const mess = `Game Over. Snake length is ${this.state.snakeDots.length}. Want to Save this score? `;
             var x = window.confirm(mess);
             if (x == true) {

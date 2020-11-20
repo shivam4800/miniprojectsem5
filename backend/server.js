@@ -27,10 +27,16 @@ connection.once('open', () => {
 
 });
 const gamersRouter = require('./routes/gamers');
+
 app.use(bodyParser.json());
 
 app.use('/gamers', gamersRouter);
 
+const feedbackRouter = require('./routes/feedbacks');
+
+app.use(bodyParser.json());
+
+app.use('/feedbacks', feedbackRouter);
 
 io.on('connection', client => {
     gameLogic.initializeGame(io, client)

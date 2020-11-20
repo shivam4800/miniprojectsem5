@@ -9,7 +9,7 @@ import Piece from './piece'
 import piecemap from './piecemap'
 import { useParams } from 'react-router-dom'
 import { ColorContext } from '../../context/color-context' 
-import VideoChatApp from '../../connection/videochat'
+//import VideoChatApp from '../../connection/videochat'
 import { exname, isIn } from '../../Header';
 import axios from 'axios';
 const socket  = require('../../connection/socket').socket
@@ -110,7 +110,7 @@ class ChessGame extends React.Component {
         })
 
         if (blackCheckmated) {
-            alert("WHITE WON BY CHECKMATE!");
+            alert("WHITE WON BY CHECKMATE!, saving score of White (host) to database...");
             won = 1;
             if (isIn) {
                 const payload = {
@@ -130,7 +130,25 @@ class ChessGame extends React.Component {
                 alert("You cannot save score without logging in!")
             }
         } else if (whiteCheckmated) {
-            alert("BLACK WON BY CHECKMATE!")
+            alert("BLACK WON BY CHECKMATE!, saving score of white(host) to database...");
+            won = 0;
+            if (isIn) {
+                const payload = {
+                    "username": exname,
+                    "score": won,
+                }
+                axios.put('http://localhost:5000/gamers/addchess', payload)
+                    .then(function (response) {
+                        if (response.status === 200) { console.log('done'); console.log(response); }
+                    }).catch(function (error) {
+                        console.log(error);
+                        alert('Invalid action');
+                    });
+            }
+
+            else {
+                alert("You cannot save score without logging in!")
+            }
         }
     }
 
@@ -335,12 +353,7 @@ const ChessGameWrapper = (props) => {
                 gameId={gameid}
                 color={color.didRedirect}
               />
-              <VideoChatApp
-                mySocketId={socket.id}
-                opponentSocketId={opponentSocketId}
-                myUserName={props.myUserName}
-                opponentUserName={opponentUserName}
-              />
+              
             </div>
             <h4> You: {props.myUserName} </h4>
           </div>
@@ -381,3 +394,13 @@ const ChessGameWrapper = (props) => {
 };
 
 export default ChessGameWrapper
+
+/*
+ <VideoChatApp
+                mySocketId={socket.id}
+                opponentSocketId={opponentSocketId}
+                myUserName={props.myUserName}
+                opponentUserName={opponentUserName}
+              />
+
+*/

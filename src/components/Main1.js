@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+ï»¿import React, { useState, useEffect } from 'react';
 
 
 import Typical from 'react-typical';
@@ -127,13 +126,14 @@ const Main1 = (props) => {
             <div className="bg">
                 <div className="container" >
                     <div className="row text-center">
-                        <div class="col-12 col-sm-8 col-md-8 col-lg-8 boxstyle">
 
-                            <h1 className="main-power-fonts" style={{ textAlign: 'left', color: 'white' }}>The Power of gaming </h1>
-                            <h2 style={{ textAlign: 'left' }}> The energy to unite people, create empires and direct someone to challenge oneself to rise above the limitations 
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8 boxstyle" >
+
+                            <h1 className="main-power-fonts" style={{ textAlign: 'left' }}>The Power of gaming </h1>
+                            {/*<p style={{ textAlign: 'left' ,color:'white',fontFamily: 'Ubuntu',fontSize: '15px',fontWeight:'normal'}} className="main-power-subfonts" > The energy to unite people, create empires and direct someone to challenge oneself to rise above the limitations 
                             - is what Gaming is well known for ! Our website strives to develop a platform which brings together the talent, 
                             craze, nostalgia and awesomeness which individuals might not be able to gain at the comfort of their RGB Gaming Beasts... 
-                                Join this small initiative to make gaming, and game develpment more awesome </h2> 
+                                Join this small initiative to make gaming, and game develpment more awesome </p> */}
 
 
                         </div>
@@ -156,13 +156,13 @@ const Main1 = (props) => {
             </div>
 
 
-            <div className="white">
+            <div className="white white-padding">
                 <div className="container">
                     <div className="row text-center">
-                        <div className="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div className="col-12 col-sm-5 col-md-5 col-lg-5 parallelogram" style={{ marginRight: '60px' }}>
                             Hello
                         </div>
-                        <div className="col-12 col-sm-6 col-md-6 col-lg-6 ">
+                        <div className="col-12 col-sm-6 col-md-6 col-lg-6 parallelogram">
                             Appp
                         </div>
                     </div>
@@ -172,7 +172,7 @@ const Main1 = (props) => {
 
 
             <div className="black black-padding">
-                <div className="container">
+                <div className="container ">
                     <div className="row text-center">
                         <div className="menu" >
                             <div className={latest ? 'mainitem mainitem-border ' : 'mainitem '} onClick={onClickLatest}>
@@ -182,8 +182,8 @@ const Main1 = (props) => {
                                 <a ><h3 className="main-list-fonts">Available</h3></a>
                             </div>
                         </div>
-                        <div className="main-hidden-left" ></div>
-                        <div className="main-hidden-right" ></div>
+                        {/*<div className="main-hidden-left" ></div>
+                        <div className="main-hidden-right" ></div>*/}
                         {latest ?
                             <div>
                                 <div>
@@ -224,7 +224,7 @@ const Main1 = (props) => {
                 sdshre
             </div>
             <div className="section">
-                Apr 12, 2019 — Blog UIEverything you need to know about Mobile First Design ... A more deep approach on the mobile first and responsive design can wrap ... The user can experience the website completely on the desktop as ... The design hides or covers some details from the mobile users in order to make the site neat.
+                Apr 12, 2019 ï¿½ Blog UIEverything you need to know about Mobile First Design ... A more deep approach on the mobile first and responsive design can wrap ... The user can experience the website completely on the desktop as ... The design hides or covers some details from the mobile users in order to make the site neat.
 
             </div>
 

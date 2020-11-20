@@ -28,7 +28,17 @@ import Roller from './Roller';
 import TicTacToe from './TicTacToe';
 import Search from './Search';
 import News from './News';
-
+import TicPage from './TicPage';
+import A2048 from './A2048';
+import Breakout from "./games/breakout";
+import Hangman from './Hangman';
+//import Reacteroids  from './Reactaroids';
+import Tetris from './Tetris';
+import ChessPage from './ChessPage';
+import BrickPage from './BrickPage';
+import HangPage from './HangPage';
+import TetrisPage from './TetrisPage';
+import A2048Page from './A2048page';
 
 
 const App = () => {
@@ -100,12 +110,22 @@ const App = () => {
                     <Route path="/contact" exact component={Contact} />
                     <Route path="/memory-walkthrough" exact component={Memory} />
                         <Route path="/knowledge" exact component={Knowledge} />
-
+                        <Route path="/breakout" exact component={Breakout} />
                         <Route path="/news" exact component={News} />
                         <Route path="/hot-games" exact component={HotGames} />
                         <Route path="/search" exact component={Search} />  
                         <Route path="/reaction-games" exact component={ReactionGames} />
                         <Route path="/tictactoe" exact component={TicTacToe} />
+                        <Route path="/ticpage" exact component={TicPage} />
+                        <Route path="/2048" exact component={A2048} />
+                        <Route path="/hangman" exact component={Hangman} />
+                        <Route path="/asteroids" component={Hangman} />
+                        <Route path="/tetris" exact component={Tetris} />
+                        <Route path="/chesspage" exact component={ChessPage} />
+                        <Route path="/brickpage" exact component={BrickPage} />
+                        <Route path="/hangpage" exact component={HangPage} />
+                        <Route path="/tetrispage" exact component={TetrisPage} />    
+                        <Route path="/2048page" exact component={A2048Page} />    
                         <PrivateRoute path="/youarein">
                            
                             <Main1 />

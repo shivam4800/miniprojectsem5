@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './TicTacToe.css';
 import axios from 'axios';
 
-
+import { exname, isIn, exmail } from './Header';
 var winnernum = 0;
 class TicTacToe extends Component {
 
@@ -77,29 +77,55 @@ class TicTacToe extends Component {
     let have_winner = winner(this.state.board);
     let keep_playing = have_winner === null ? true : false;
 
-      if (have_winner !== null) alert(have_winner + " won!");
+      if (have_winner !== null) {
+          alert(have_winner + " won!");
 
-      console.log(have_winner);
+          console.log(have_winner);
 
-      if (have_winner == 'X') {
-          console.log("Winner is " + have_winner);
-          winnernum = 1;
-          /*const payload = {
-              "username": exname,
-              "score": this.state.snakeDots.length,
+          if (have_winner == 'X') {
+              if (isIn) {
+                  alert("Winner is " + have_winner + " ,saving to database..");
+                  winnernum = 1;
+                  const payload = {
+                      "email": exmail,
+                      "score": winnernum,
+                  }
+                  axios.put('http://localhost:5000/gamers/addtic', payload)
+                      .then(function (response) {
+                          if (response.status === 200) { console.log('done'); console.log(response); }
+                      }).catch(function (error) {
+                          console.log(error);
+                          alert('Invalid action');
+                      });
+              }
+
+              else {
+                  console.log("Winner is " + have_winner + " ,cannot save to database as you were noyt logged in!");
+              }
+
           }
-          axios.put('http://localhost:5000/gamers/addsnakegame', payload)
-              .then(function (response) {
-                  if (response.status === 200) { console.log('done'); console.log(response); }
-              }).catch(function (error) {
-                  console.log(error);
-                  alert('Invalid action');
-              });*/
+          else {
 
-      }
-      else {
-          console.log("Winner is " + have_winner);
-          winnernum = 0;
+              if (isIn) {
+                  alert("Winner is " + have_winner + " ,saving to database..");
+                  winnernum = 0;
+                  const payload = {
+                      "email": exmail,
+                      "score": winnernum,
+                  }
+                  axios.put('http://localhost:5000/gamers/addtic', payload)
+                      .then(function (response) {
+                          if (response.status === 200) { console.log('done'); console.log(response); }
+                      }).catch(function (error) {
+                          console.log(error);
+                          alert('Invalid action');
+                      });
+              }
+
+              else {
+                  console.log("Winner is " + have_winner + " ,cannot save to database as you were noyt logged in!");
+              }
+          }
       }
 
     return (

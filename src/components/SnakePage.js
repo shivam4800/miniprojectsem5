@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import { useState, useEffect } from 'react';
 import { SnakeChart } from './SnakeChart.js';
+import axios from 'axios';
 import Chart, {
     ArgumentAxis,
     Label,
@@ -11,14 +12,39 @@ import Chart, {
     Series,
 } from 'devextreme-react/chart';
 
-import { exname, snakeArr, isIn } from './Header';
+import { exname, snakeArr, isIn, uid} from './Header';
 
+var snakeArr2 = [];
+var exname2 = 'Guest';
 
 const SnakePage = () => {
+    const usersn = () => {
+        axios.get('http://localhost:5000/gamers/fetch3/' + uid)
+            .then(function (response) {
+                if (response.status === 200) {
+                    console.log("response on ticpage", response.data);
+                    //if ()
+                    exname2 = response.data.username;
+                    console.log("name on ticpage is: ", exname2);
+                    //var exmail2 = response.data.email;
+                    //snakeArr = response.data.snakegame;
+                    snakeArr2 = response.data.snakegame;
+                    console.log("New Snake Array: ", snakeArr2);
+                    console.log('me');
+                    //renderLogout();
 
+
+                }
+            })
+            .catch(function (error) {
+                console.log("error");
+            });
+    }
+
+    usersn();
     console.log("Name on SnakePage: ", exname);
     console.log("Array on Snakepage: ", snakeArr);
-    let val = snakeArr.length;
+    let val = snakeArr2.length;
     console.log("Length is: ")
     const [login, setLogin] = useState(false);
     const onCloseLogin = () => {
@@ -62,19 +88,19 @@ const SnakePage = () => {
                                     title="Data of Last 5 Games"
                                     dataSource={[{
                                         arg: 'Older',
-                                        val: snakeArr[val - 5]
+                                        val: snakeArr2[val - 5]
                                     }, {
                                         arg: 'Old',
-                                        val: snakeArr[val - 4]
+                                        val: snakeArr2[val - 4]
                                     }, {
                                         arg: 'New',
-                                        val: snakeArr[val - 3]
+                                        val: snakeArr2[val - 3]
                                     }, {
                                         arg: 'Newer',
-                                        val: snakeArr[val - 2]
+                                        val: snakeArr2[val - 2]
                                     }, {
                                         arg: 'Newest',
-                                        val: snakeArr[val - 1]
+                                        val: snakeArr2[val - 1]
                                     }]}
 
                                     id="chart"

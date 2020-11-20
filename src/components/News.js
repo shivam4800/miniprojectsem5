@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
-
+import bg3 from '../images/bg4.jpg';
+import Typical from 'react-typical';
 import './News.css';
 import { Center } from "devextreme-react/map";
 
@@ -32,36 +32,56 @@ const News = () => {
         e.preventDefault();
         setUrl(`http://hn.algolia.com/api/v1/search?query=${searchQuery}`);
     };
-    const showLoading = () => (loading ? <h2>Loading ... </h2> : "");
+    const showLoading = () => (loading ? <h2 className="news-loading">Loading ... </h2> : "");
     const searchForm = () => (
         <form onSubmit={handleSubmit}>
-            <input type="text" value={searchQuery} onChange={handleChange} />
-            <button>Search</button>
+            <input type="text" value={searchQuery} onChange={handleChange} className="news-input" />
+
         </form>
     );
-    const showNews = () => (
+    const showNews = news.map((n) => {
+        return (
+            <div>
+                <div style={{ textAlign: 'left' }} >
+                    <div className="news-box">
+                        <a style={{ color: 'white' }} href={n.url} target="_blank">{n.title}</a>
+                    </div>
+                </div>
 
-        news.map((n, i) => (
-            <p><a href={n.url}>{n.title} </a> </p>))
+            </div>
+        )
+    })
 
-    )
     return (
-        <div className="News" >
-            
-            <center>
+        <div className="news" >
+            <div className="news-bg">
+                <img src={bg3} width="100%" height="700px" />
+            </div>
+
+            <div className="text-center">
                 <br />
                 <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <h2 className="NewsTitle" style={{marginTop: '50px' }}>News</h2>
-            {showLoading()}
-            {searchForm()}
-                {showNews()}
-            </center>>
+                <h1 className="search-display search-find-fonts" >Find any  &nbsp;</h1>
+                <Typical className="search-text search-find-fonts"
+                    steps={['News!!', 5000, ' Updates!!', 5000]}
+                    loop={Infinity}
+                    wrapper="p"
+                />
+            </div>
+            <div className="text-center">
+
+                {searchForm()}
+            </div>
+            <div className="text-center black1 black-news">
+                <div className="container ">
+                    {showLoading()}
+                    {showNews}
+                </div>
+            </div>
+            <div>
+                dgf
+            </div>
+
 
         </div>
     )
