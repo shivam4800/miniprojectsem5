@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+.chess-input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #42c1e0;
+    transition: 2s;
+    margin-top: 50px;
+    outline: none;
+    width: 50%;
+   
+}
+.chess-chess{
+    font-family:'Press Start 2P';
+    text-shadow: 1px 2px 1px #38ccc5, 0 0 1px #f4f7f8;
+    font-size:40px
+}
+.chess-submit {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #42c1e0;
+    transition: 1s;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+    .chess-submit:hover {
+        background-color: #0c3338;
+        transition: 1s;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+.chess-chat {
+    margin-left: 60px;
+    padding: 10px;
+    background-color: #42c1e0;
+    color: white;
+    transition: 1s;
+    border: none;
+    border-radius: 5px;
+}
+
+    .chess-chat:hover {
+        background-color: white;
+        transition: 1s;
+        color: #42c1e0;
+        border: 1px solid #42c1e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin-left: 60px;
+    }

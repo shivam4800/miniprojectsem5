@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\backend",
+    "\\backend\\middleware",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\chess",
+    "\\src\\components\\chess\\assets",
+    "\\src\\components\\chess\\model",
+    "\\src\\components\\connection",
+    "\\src\\images"
+  ],
+  "SelectedNode": "\\src\\components\\sideBar.js",
+  "PreviewInSolutionExplorer": false
+}
