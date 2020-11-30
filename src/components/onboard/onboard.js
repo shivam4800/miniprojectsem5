@@ -51,7 +51,8 @@ class CreateNewGame extends React.Component {
     render() {
         // !!! TODO: edit this later once you have bought your own domain. 
 
-        return (<React.Fragment>
+        return (
+            <div className="chess-bg-bg">
             {
                 this.state.didGetUserName ?
 
@@ -67,7 +68,7 @@ class CreateNewGame extends React.Component {
                             <br />
                             <br />
                             <br />
-                            <h1 >Your Username:</h1>
+                            <h1 className="chess-title-title" style={{textAlign: "center",paddingTop:'130px'}}>Your Username:</h1>
 
                             <input className="chess-input"
                                 ref={this.textArea}
@@ -94,7 +95,8 @@ class CreateNewGame extends React.Component {
 
                     </div>
             }
-        </React.Fragment>)
+            </div>
+        )
     }
 }
 

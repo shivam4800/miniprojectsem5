@@ -31,7 +31,8 @@ class JoinRoom extends React.Component {
 
     render() {
     
-        return (<React.Fragment>
+        return (
+            <div className="chess-bg-bg">
             {
                 this.state.didGetUserName ? 
                 <React.Fragment>
@@ -41,7 +42,7 @@ class JoinRoom extends React.Component {
             :
             <div className="container">
             <div className="text-center">
-             <h1 style={{textAlign: "center",paddingTop:'130px'}}>Your Username:</h1>
+             <h1  className="chess-title-title" style={{textAlign: "center",paddingTop:'130px'}}>Your Username:</h1>
              
              <input className=" chess-input"
                     ref = {this.textArea}
@@ -62,7 +63,8 @@ class JoinRoom extends React.Component {
              </div>
          </div>
             }
-            </React.Fragment>)
+            </div>
+           )
     }
 }
 

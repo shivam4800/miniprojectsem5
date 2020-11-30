@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import './joinroom.css';
 const socket = require('../connection/socket').socket
 
 /**
@@ -33,7 +34,9 @@ const JoinGame = (props) => {
      */
     const { gameid } = useParams()
     JoinGameRoom(gameid, props.userName, props.isCreator)
-    return( <div  className="text-center">
+    return( 
+        <div className="chess-bg-bg-bg"> 
+    <div  className="text-center">
         <br />
         <br />
         <br /><br />
@@ -41,7 +44,9 @@ const JoinGame = (props) => {
         <br />
         <h1 className="chess-chess">Chess</h1> 
 
-    </div>);
+    </div>
+    </div>
+    );
 }
 
 export default JoinGame

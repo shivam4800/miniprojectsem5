@@ -58,8 +58,8 @@ const Footer = () => {
                 <a href="https://youtu.be/rUvB2JIwwl4" target="_blank" style={{color:'white'}}><button class="ui circular linkedin icon button" style={{ marginRight: '10px' }}>
                        <i class="linkedin icon"></i>
                     </button></a>
-                    <a href="https://youtu.be/rUvB2JIwwl4" target="_blank" style={{color:'white'}}><button class="ui circular google plus icon button" style={{ marginRight: '10px' }}>
-                        <i class="envelope  icon"></i>
+                    <a href="https://youtu.be/rUvB2JIwwl4" target="_blank" style={{color:'white'}}><button class="ui circular facebook icon button" style={{ marginRight: '10px' }}>
+                        <i class="facebook  icon"></i>
                     </button></a>
                     <a href="https://youtu.be/rUvB2JIwwl4" target="_blank" style={{color:'white'}}><button class="ui circular youtube icon button" style={{ marginRight: '10px' }}>
                        <i class="youtube  icon"></i>

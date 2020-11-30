@@ -116,21 +116,23 @@ class Hangman extends Component {
         }
 
         return (
+            <div className="hangman-bg">
             <div className="Hangman container">
                 <h1 className='text-center' style={{opacity:'0',paddingTop:'50px'}}>Hangman</h1>
-                <div className="text-center"  style={{paddingTop:'50px'}}>Wrong Guesses: {this.state.mistake} of {this.props.maxWrong}</div>
+                <div className="text-center"  style={{paddingTop:'50px',color:'white',fontWeight:'bold'}}>Wrong Guesses: {this.state.mistake} of {this.props.maxWrong}</div>
                 <div className="text-center">
                     <img src={this.props.images[this.state.mistake]} alt="" />
                 </div>
                 <div className="text-center">
-                    <p>Guess the Programming Language:</p>
-                    <p>
+                    <p style={{color:'white',fontWeight:'bold'}}>Guess the Programming Language:</p>
+                    <p style={{color:'white',fontWeight:'bold'}}>
                         {!gameOver ? this.guessedWord() : this.state.answer}
                     </p>
-                    <p>{gameStat}</p>
+                    <p style={{color:'white',fontWeight:'bold',fontSize:'20px'}}>{gameStat}</p>
                     <button className='btn btn-info' onClick={this.resetButton} style={{marginBottom:'30px'}}>Reset</button>
                     
                 </div>
+            </div>
             </div>
         )
     }

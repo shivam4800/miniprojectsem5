@@ -417,6 +417,7 @@ function A2048() {
     useEvent("keydown", handleKeyDown);
 
     return (
+        <div className="hangman-bg">
         <div className="A2048">
             <div style={{
                     width: 345,
@@ -508,7 +509,7 @@ function A2048() {
                     </Swipe>
                 </div>
 
-                <div className="text-center" style={{marginTop:'30px',marginBottom:'30px',backgroundColor:'#846f5b',borderRadius:'10px',padding:'10px'}} > 
+                <div className="text-center" style={{marginTop:'30px',backgroundColor:'#846f5b',borderRadius:'10px',padding:'20px'}} > 
                     <p class="game-explanation">
                         <b class="important">How to play:</b> Use your{" "}
                         <strong>arrow keys</strong> to move the tiles. When two tiles with
@@ -516,6 +517,7 @@ function A2048() {
                     </p>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

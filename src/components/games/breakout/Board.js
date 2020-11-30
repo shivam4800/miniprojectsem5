@@ -103,6 +103,7 @@ export default function Board() {
     }, []);
 
     return (
+        <div  className="breakout-bg">
         <div style={{ textAlign: "center" }}>
             <h1 className="gameHeader" style={{paddingBottom:'70px',opcaity:'0'}}>Breakout Game</h1>
             <canvas
@@ -122,6 +123,7 @@ export default function Board() {
                         : window.innerWidth - (window.innerWidth * 20) / 100
                 }
             />
+        </div>
         </div>
     );
 }

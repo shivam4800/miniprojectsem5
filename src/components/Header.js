@@ -7,7 +7,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import Logo from '../images/logo12345.png';
 import 'react-responsive-modal/styles.css';
-import bgcon from '../images/gameconsole1.png';
+import bgcon from '../images/logo12.png';
 import { Modal } from 'react-responsive-modal';
 import { Url } from 'devextreme-react/chart';
 
@@ -145,7 +145,8 @@ const Header = (props) => {
     const bg = {
 
         modal: {
-            background: '#121212'
+            background: '#121212',
+            borderRadius:'10px'
         },
         closeButton: {
             color: '#383838'
@@ -281,8 +282,8 @@ const Header = (props) => {
                             <i className=" sidebar icon" onClick={props.toggleMenu}></i>
                         </div>
                     </div>
-                    <div className="col-xs-5 col-sm-6 col-md-6 fonts">
-                        <img src={Logo} width="250px" height="50px"/>
+                    <div className="col-xs-5 col-sm-6 col-md-6 align-logo">
+                        <img src={Logo} width="250px" height="50px" className="fonts"/>
                     </div>
                     {isIn ?
                         <div className="col-xs-6 col-sm-5 col-md-5" style={{ textAlign: 'right' }}>
@@ -313,10 +314,10 @@ const Header = (props) => {
                             <a href="https://youtu.be/rUvB2JIwwl4" target="_blank"><i className="youtube icon " ></i></a>
                         </div>
                         <div class="ui icon align-social blue-tooltip" data-toggle="tooltip" data-placement="top" title="Google" >
-                            <i className="envelope icon " ></i>
+                            <a href="https://youtu.be/rUvB2JIwwl4" target="_blank"><i className="facebook icon " ></i></a>
                         </div>
                         <div class="ui icon align-social blue-tooltip" data-toggle="tooltip" data-placement="top" title="Linkedin" >
-                            <i className="linkedin icon " ></i>
+                            <a href="https://youtu.be/rUvB2JIwwl4" target="_blank"><i className="linkedin icon " ></i></a>
                         </div>
 
                     </div>
@@ -325,11 +326,11 @@ const Header = (props) => {
 
             <Modal open={sign} onClose={onCloseSign} styles={bg}>
                 <div className="modal-body">
-                    <div className="header-modal-signin-1" >
-                        <img src={bgcon} width="50%" height="100%" />
+                    <div className=" header-modal-signin-1" >
+                        <img src={bgcon}  width="70%" height="100%"/>
                     </div>
-                    <div className="header-modal-signin-2">
-                        <h3>Signup</h3>
+                    <div className="  header-modal-signin-2">
+                        <h3 style={{color:'rgb(92, 86, 86)',textAlign:'center'}}>SIGN UP</h3>
 
                         <form className="contact-form form-validate3" novalidate="novalidate">
                             <div className="form-group">
@@ -344,8 +345,9 @@ const Header = (props) => {
                             <div className="form-group">
                                 <input type="password" name="pass" className="form-control header-input" placeholder="  Re-Password" required="" autocomplete="off" aria-required="true" />
                             </div>
-                            <input className="btn btn-md btn-info btn-center" id="sign_up" type="button" value="Sign Up" onClick={handleSignupSubmit} />
-
+                            <div className="text-center">
+                            <input className="btn btn-md btn-info btn-center " id="sign_up" type="button" value="Sign Up" onClick={handleSignupSubmit} />
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -353,10 +355,10 @@ const Header = (props) => {
             <Modal open={login} onClose={onCloseLogin} styles={bg}>
                 <div className="modal-body">
                     <div className="header-modal-signin-1" >
-                        <img src={bgcon} width="50%" height="100%" />
+                        <img src={bgcon} width="70%" height="100%" />
                     </div>
                     <div className="header-modal-signin-2">
-                        <h3>Login</h3>
+                        <h3 style={{color:'rgb(92, 86, 86)',textAlign:'center'}}>LOGIN</h3>
 
                         <form className="contact-form form-validate3" novalidate="novalidate">
 
@@ -366,13 +368,8 @@ const Header = (props) => {
                             <div className="form-group">
                                 <input type="password" name="pass" className="form-control header-input" placeholder="Password" required="" autocomplete="off" aria-required="true" onChange={onPasswordChange} value={password} />
                             </div>
-
+                            <div className="text-center">
                             <input className="btn btn-md btn-info btn-center" id="sign_up" type="button" value="Login" onClick={handleLoginSubmitClick} />
-                            <div class="ui horizontal divider">
-                                Or
-                            </div>
-                            <div>
-                                <h3>Login with Google</h3>
                             </div>
 
                         </form>

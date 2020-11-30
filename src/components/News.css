@@ -32,7 +32,8 @@
     border-bottom-right-radius: 10px;
     padding: 20px;
     width: 100%;
-    border-left: 2px solid #37c9b5
+    border-left: 2px solid #37c9b5;
+    transition: 1s;
 }
 
 .news-loading {
@@ -44,4 +45,5 @@
 .news-box:hover {
     background-color: #2cd6bf;
     border-left: 2px solid white;
+    transition: 1s;
 }

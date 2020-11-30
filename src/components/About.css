@@ -6,8 +6,8 @@
 }
 
 .bg-about {
-    background-image: url("../images/bg2.jpg");
-    padding-bottom: 80px;
+    background-image: url("../images/console2.jpg");
+    padding-bottom: 150px;
     background-size: 100% 100%;
 }
 .about-delete{
@@ -38,11 +38,13 @@
     margin-top: 200px;
     margin-bottom: 200px;
     position: relative;
+    transition:1s;
 }
 
     .boxstyle-about:hover {
         background-color: #45ced391;
         border-right: 4px solid white;
+        transition:1s;
     }
 
 .about-black {
@@ -141,11 +143,13 @@
         font-size: 11px;
         color: white;
     }
-
+.about-hello{
+    padding-top:35px
+}
 @media only screen and (max-width:1000px) {
     .about-hello {
-        padding-bottom: 30px;
-        background-color: blue;
+        padding-bottom: 40px;
+        
     }
 
     .about-img {

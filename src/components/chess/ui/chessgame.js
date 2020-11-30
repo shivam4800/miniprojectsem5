@@ -351,13 +351,13 @@ const ChessGameWrapper = (props) => {
 
     return (
         <React.Fragment>
-            
+        <div className="chess-bg-bg">
         {opponentDidJoinTheGame ? (
             <div className="container">
                 <div className="text-center">
                     <div className="chess-main">
                     <h4  style={{marginTop:'50px'}}> Opponent: {opponentUserName} </h4>
-                    </div>
+                    </div>  
                     <div className="chess-main">
                     <h4 style={{marginTop:'30px',marginBottom:'20px'}}> You: {props.myUserName} </h4>
                     </div>
@@ -409,6 +409,7 @@ const ChessGameWrapper = (props) => {
           </div>
           </div>
         )}
+        </div>
       </React.Fragment>
     );
 };

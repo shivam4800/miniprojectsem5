@@ -9,7 +9,7 @@
     background-color: lightcyan;
     background-image: url("../images/23.jpg");
     background-size: 100% 100%;
-    padding-bottom: 100px;
+    padding-bottom: 140px;
 }
 
 .boxstyle-contact {
@@ -21,11 +21,13 @@
     margin-top: 200px;
     margin-bottom: 200px;
     position: relative;
+    transition: 1s;
 }
 
     .boxstyle-contact:hover {
         background-color: #45ced391;
         border-right: 4px solid white;
+        transition: 1s;
     }
 
 .contact-fonts {
@@ -58,7 +60,7 @@
 }
 
 .contact-form-heading {
-    color: #afb4b4;
+    color: #dae0e0;
     text-align: left;
     font-family: 'Press Start 2P';
     font-size: 20px;

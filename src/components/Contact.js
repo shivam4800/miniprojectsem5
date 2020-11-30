@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Contact.css';
 import axios from 'axios';
+import Logo from '../images/logo12345.png';
 
 const Contact = () => {
 
@@ -101,7 +102,7 @@ const Contact = () => {
                 <div className="row text-center contact-section">
                     <div class="col-12 col-sm-4 col-md-4 col-lg-4 contact-margin">
                         <div className="contact-fonts" style={{ textAlign: 'left' }}>
-                            <a class="mb-50 d-block"><img src="img/core-img/logo.png" alt="" /></a>
+                            <a class="mb-50 d-block"><img src={Logo} alt=""  width="70%"  style={{marginBottom:'90px'}}/></a>
                             <p style={{ lineHeight: '30px' }}> A portal not only for gamers and developers, but for everyone who wants a break from their busy schedule! </p>
                         </div>
                     </div>

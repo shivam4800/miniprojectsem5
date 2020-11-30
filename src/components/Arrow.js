@@ -20,7 +20,7 @@ const Arrow = () => {
     window.addEventListener('scroll', changeArrow);
     return (
         <div className="arrow">
-            <i className=" large circular angle up  icon arrow-scroll" style={{ display: showScroll ? 'block' : 'none' }} onClick={onTop}></i>
+            <i className=" large circular angle up  icon arrow-scroll" style={{ display: showScroll ? 'block' : 'none',transition:'1s' }} onClick={onTop}></i>
         </div>
 
 
